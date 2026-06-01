@@ -1,5 +1,5 @@
-import { lazy, Suspense, useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { lazy, Suspense, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { setMeta } from "./utils/seo";
 

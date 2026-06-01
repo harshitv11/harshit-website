@@ -5,32 +5,32 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "CallHQ",
-    category: "Voice AI Calling Platform",
-    tools: "Voice AI, Calling Automation, CRM Integrations",
+    title: "AI Ads System",
+    category: "ChatGPT-Powered Ad Campaigns",
+    tools: "ChatGPT Ads, Meta Ads, AI Creative Automation, Performance Tracking",
     image: "/images/callhq.png",
-    link: "https://callhq.ai",
+    link: "#",
   },
   {
-    title: "Whatsapp Automation",
-    category: "WABA Application",
-    tools: "WhatsApp Business API, Workflow Automation, Notifications",
+    title: "Performance Funnels",
+    category: "Lead Generation & Conversion",
+    tools: "Meta Ads, Google Ads, Landing Pages, A/B Testing, CRO",
     image: "/images/whatsapp.png",
-    link: "https://whatsapp.callhq.ai",
+    link: "#",
   },
   {
-    title: "Broki",
-    category: "Real Estate Platform for FnB Industry",
-    tools: "Property Discovery, Lead Management, Marketplace Workflows",
+    title: "AI Growth Strategy",
+    category: "Brand Scaling with AI",
+    tools: "AI Automation, Growth Strategy, Email Marketing, Brand Positioning",
     image: "/images/broki.png",
-    link: "https://broki.in",
+    link: "#",
   },
   {
-    title: "Orrdr.com",
-    category: "Ecommerce Platform and Mobile App",
-    tools: "Ecommerce, Mobile Experience, Order Management",
+    title: "Creative Automation",
+    category: "AI-Powered Ad Creatives",
+    tools: "AI Creative Systems, Video Ads, Copywriting, Visual Branding",
     image: "/images/orrdr.png",
-    link: "https://orrdr.com",
+    link: "#",
   },
 ];
 

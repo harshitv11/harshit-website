@@ -6,11 +6,12 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          I am currently co-founder of CallHQ.ai, building real-time voice AI for
-          businesses. I am a technologist at heart with strong business judgment—
-          I enjoy going from product strategy to hands-on engineering. My background
-          spans leadership at Adobe, founding Broki and CallHQ, and shipping
-          full-stack products end to end.
+          I am Harshit Mutha, an AI Ads Expert helping brands scale their growth
+          through intelligent, data-driven advertising. I specialize in building
+          high-converting ad systems powered by AI — turning ad spend into
+          predictable revenue. My focus is on strategy, creative performance,
+          and leveraging the latest AI tools to stay ahead in a fast-moving
+          digital landscape.
         </p>
       </div>
     </div>

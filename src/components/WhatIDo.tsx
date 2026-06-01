@@ -87,20 +87,20 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>AI & AUTOMATION</h3>
-              <h4>Workflow Intelligence for Organizations</h4>
+              <h3>AI ADS</h3>
+              <h4>Performance Advertising Powered by AI</h4>
               <p>
-                AI specialist helping organizations automate workflows—internal ops
-                and customer-facing—so teams ship faster with less manual work.
+                I build AI-driven ad systems that generate leads, lower cost per
+                acquisition, and scale revenue — across Meta, Google, and beyond.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">LLMs &amp; agents</div>
-                <div className="what-tags">Workflow design</div>
-                <div className="what-tags">RAG &amp; retrieval</div>
-                <div className="what-tags">Evals &amp; guardrails</div>
-                <div className="what-tags">Integrations</div>
-                <div className="what-tags">Product strategy</div>
+                <div className="what-tags">Meta Ads</div>
+                <div className="what-tags">Google Ads</div>
+                <div className="what-tags">AI Creatives</div>
+                <div className="what-tags">Funnel Strategy</div>
+                <div className="what-tags">Retargeting</div>
+                <div className="what-tags">Analytics</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -124,21 +124,20 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>BUILD &amp; SCALE</h3>
-              <h4>Shipping AI in Production</h4>
+              <h3>GROWTH &amp; STRATEGY</h3>
+              <h4>Scaling Brands with Smart Systems</h4>
               <p>
-                I build the systems behind it: APIs, data, voice/real-time, and
-                full-stack products—production-ready, not slide decks.
+                From ad copy to conversion funnels, I craft growth strategies
+                that turn attention into revenue — fast, measurable, repeatable.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Python</div>
-                <div className="what-tags">REST &amp; real-time APIs</div>
-                <div className="what-tags">PostgreSQL</div>
-                <div className="what-tags">MongoDB</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Cloud &amp; infra</div>
+                <div className="what-tags">Copywriting</div>
+                <div className="what-tags">Landing Pages</div>
+                <div className="what-tags">A/B Testing</div>
+                <div className="what-tags">Lead Generation</div>
+                <div className="what-tags">Email Marketing</div>
+                <div className="what-tags">Brand Positioning</div>
               </div>
               <div className="what-arrow"></div>
             </div>

@@ -11,6 +11,7 @@
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 50px;
+  color: #0F172A;
 }
 
 .work-section h2>span {
@@ -30,8 +31,8 @@
 .carousel-track-container {
   overflow: hidden;
   width: 100%;
-  border-top: 1px solid #363636;
-  border-bottom: 1px solid #363636;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .carousel-track {
@@ -79,11 +80,12 @@
   font-size: 28px;
   font-weight: 500;
   margin: 0;
+  color: #0F172A;
 }
 
 .carousel-category {
   font-weight: 200;
-  color: #adacac;
+  color: #64748b;
   margin: 0;
   font-size: 16px;
 }
@@ -102,7 +104,7 @@
 
 .carousel-tools p {
   font-weight: 200;
-  color: #adacac;
+  color: #64748b;
   margin: 6px 0 0;
   font-size: 15px;
 }
@@ -120,9 +122,9 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #eae5ec;
+  background: rgba(37, 99, 235, 0.05);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  color: #1a1a2e;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -136,10 +138,10 @@
 }
 
 .carousel-arrow:hover {
-  background: rgba(94, 234, 212, 0.15);
+  background: rgba(37, 99, 235, 0.1);
   border-color: var(--accentColor);
   color: var(--accentColor);
-  box-shadow: 0 0 20px rgba(94, 234, 212, 0.15);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.15);
 }
 
 .carousel-arrow-left {
@@ -162,7 +164,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(37, 99, 235, 0.2);
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -171,13 +173,13 @@
 
 .carousel-dot:hover {
   border-color: var(--accentColor);
-  background: rgba(94, 234, 212, 0.2);
+  background: rgba(37, 99, 235, 0.2);
 }
 
 .carousel-dot-active {
   background: var(--accentColor);
   border-color: var(--accentColor);
-  box-shadow: 0 0 8px rgba(94, 234, 212, 0.4);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
 }
 
 /* ── Work Image (reused) ── */
@@ -203,8 +205,8 @@
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.5),
-    inset 0px 0px 10px 0px #393939;
+  box-shadow: 0px 0px 10px 0px rgba(37, 99, 235, 0.2),
+    inset 0px 0px 10px 0px #e2e8f0;
   transition: 0.3s;
   opacity: 0;
 }
@@ -223,7 +225,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #000;
+  background-color: #f0f4ff;
   object-fit: cover;
 }
 

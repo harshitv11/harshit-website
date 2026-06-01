@@ -168,7 +168,7 @@ const TechStack = () => {
 
   return (
     <div className="techstack">
-      <h2> My Techstack</h2>
+      <h2>My Toolstack</h2>
 
       <Canvas
         shadows
@@ -204,7 +204,7 @@ const TechStack = () => {
           environmentRotation={[0, 4, 2]}
         />
         <EffectComposer enableNormalPass={false}>
-          <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
+          <N8AO color="#dbeafe" aoRadius={2} intensity={0.6} />
         </EffectComposer>
       </Canvas>
     </div>

@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "category": "AI Ads",
+    "title": "How ChatGPT Ads Are Changing Performance Marketing Forever",
+    "excerpt": "AI-generated ad copy isn't just faster — it converts better. Here's how I use ChatGPT to write high-performing ads at scale.",
+    "content": "AI-generated ad copy isn't just faster — it converts better. Here's how I use ChatGPT to write high-performing ads at scale. The secret is in the prompting strategy and understanding your audience deeply before asking the AI to write anything.",
+    "date": "May 2026",
+    "readTime": "5 min read",
+    "featured": true,
+    "published": true
+  },
+  {
+    "id": 2,
+    "category": "AI Automation",
+    "title": "Build a Full AI Ads Workflow in Under 30 Minutes",
+    "excerpt": "From brief to live ad — how I automate the entire creative pipeline using AI tools so I can run more campaigns with less effort.",
+    "content": "From brief to live ad — how I automate the entire creative pipeline using AI tools so I can run more campaigns with less effort. This workflow has saved me 10+ hours per week.",
+    "date": "Apr 2026",
+    "readTime": "7 min read",
+    "featured": true,
+    "published": true
+  },
+  {
+    "id": 3,
+    "category": "Performance Marketing",
+    "title": "The 3-Step Meta Ads Funnel That Scaled a Brand to ₹10L/Month",
+    "excerpt": "Cold traffic, retargeting, and retention — how I structure Meta Ads funnels that actually convert at every stage.",
+    "content": "Cold traffic, retargeting, and retention — how I structure Meta Ads funnels that actually convert at every stage. Most brands skip the middle of the funnel. That's where the money is.",
+    "date": "Mar 2026",
+    "readTime": "6 min read",
+    "featured": false,
+    "published": true
+  },
+  {
+    "id": 4,
+    "category": "ChatGPT Marketing",
+    "title": "5 ChatGPT Prompts Every Ads Expert Must Know",
+    "excerpt": "These prompts have saved me hours every week. Use them to write ad hooks, headlines, CTAs, and offer copy in seconds.",
+    "content": "These prompts have saved me hours every week. Use them to write ad hooks, headlines, CTAs, and offer copy in seconds. Copy these exactly and adapt them to your niche.",
+    "date": "Feb 2026",
+    "readTime": "4 min read",
+    "featured": false,
+    "published": true
+  },
+  {
+    "id": 5,
+    "category": "Digital Growth",
+    "title": "Why Most Brands Waste 70% of Their Ad Budget (And How to Fix It)",
+    "excerpt": "The biggest mistake brands make with paid ads isn't targeting — it's the offer. Here's how to diagnose and fix a losing campaign.",
+    "content": "The biggest mistake brands make with paid ads isn't targeting — it's the offer. Here's how to diagnose and fix a losing campaign before it burns more money.",
+    "date": "Jan 2026",
+    "readTime": "5 min read",
+    "featured": false,
+    "published": true
+  },
+  {
+    "id": 6,
+    "category": "AI Ads",
+    "title": "AI Creative Systems: How I Generate 100 Ad Variations in 1 Hour",
+    "excerpt": "Creative fatigue kills campaigns. I built an AI system that produces fresh variations daily — here's the exact workflow.",
+    "content": "Creative fatigue kills campaigns. I built an AI system that produces fresh variations daily — here's the exact workflow. Stop manually creating ads. Let AI do the heavy lifting.",
+    "date": "Dec 2025",
+    "readTime": "8 min read",
+    "featured": false,
+    "published": true
+  }
+]

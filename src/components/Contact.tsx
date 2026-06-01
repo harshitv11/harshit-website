@@ -10,66 +10,70 @@ const Contact = () => {
           <div className="contact-box">
             <h4>Connect</h4>
             <p>
-              <a
-                href="https://www.linkedin.com/in/akashrmalhotra/"
-                target="_blank"
-                rel="noreferrer"
-                data-cursor="disable"
-              >
-                LinkedIn — akashrmalhotra
+              <a href="#" data-cursor="disable">
+                LinkedIn — Coming Soon
               </a>
             </p>
-            <h4>Education</h4>
-            <p>
-              PGPWE (MBA), Indian Institute of Management, Lucknow — 2021–2023
-            </p>
-            <p>
-              B.Tech Computer Science, Manav Rachna Educational Institutions —
-              2009–2013
-            </p>
+            <h4>Expertise</h4>
+            <p>AI-Powered Advertising &amp; Growth Strategy</p>
+            <p>Performance Marketing &amp; Conversion Optimization</p>
+
+            <div className="contact-form">
+              <h4>Send a Message</h4>
+              <input
+                className="contact-input"
+                type="text"
+                placeholder="Your Name"
+              />
+              <input
+                className="contact-input"
+                type="email"
+                placeholder="Your Email"
+              />
+              <textarea
+                className="contact-input contact-textarea"
+                placeholder="Your Message"
+                rows={4}
+              />
+              <button className="contact-submit" data-cursor="disable">
+                Send Message <MdArrowOutward />
+              </button>
+            </div>
           </div>
           <div className="contact-box">
             <h4>Social</h4>
             <a
-              href="https://github.com/akashrmalhotra"
-              target="_blank"
-              rel="noreferrer"
+              href="#"
               data-cursor="disable"
               className="contact-social"
             >
-              GitHub <MdArrowOutward />
+              LinkedIn — Coming Soon <MdArrowOutward />
             </a>
             <a
-              href="https://www.linkedin.com/in/akashrmalhotra/"
-              target="_blank"
-              rel="noreferrer"
+              href="#"
               data-cursor="disable"
               className="contact-social"
             >
-              LinkedIn <MdArrowOutward />
+              Instagram — Coming Soon <MdArrowOutward />
             </a>
             <a
-              href="https://www.youtube.com/@Leftbraincoder"
-              target="_blank"
-              rel="noreferrer"
+              href="mailto:hello@harshitmutha.com"
               data-cursor="disable"
               className="contact-social"
             >
-              YouTube <MdArrowOutward />
+              Email Me <MdArrowOutward />
             </a>
             <a
-              href="https://www.instagram.com/leftbraincoder/"
-              target="_blank"
-              rel="noreferrer"
+              href="#"
               data-cursor="disable"
-              className="contact-social"
+              className="contact-social contact-calendly"
             >
-              Instagram <MdArrowOutward />
+              Book a Call (Calendly) <MdArrowOutward />
             </a>
           </div>
           <div className="contact-box">
             <h2>
-              Designed and Developed <br /> by <span>Akash Malhotra</span>
+              Designed and Developed <br /> by <span>Harshit Mutha</span>
             </h2>
             <h5>
               <MdCopyright /> 2026

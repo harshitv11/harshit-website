@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
@@ -9,6 +9,8 @@ gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
@@ -39,39 +41,52 @@ const Navbar = () => {
       ScrollSmoother.refresh(true);
     });
   }, []);
+
+  const handleNavClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          AM
+          HM
         </a>
-        <a
-          href="https://www.linkedin.com/in/akashrmalhotra/"
-          className="navbar-connect"
+        <a href="#contact" className="navbar-connect" data-cursor="disable">
+          harshitmutha.com
+        </a>
+
+        {/* Hamburger button — mobile only */}
+        <button
+          className={`hamburger ${menuOpen ? "hamburger-open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
           data-cursor="disable"
-          target="_blank"
-          rel="noreferrer"
+          aria-label="Toggle menu"
         >
-          linkedin.com/in/akashrmalhotra
-        </a>
-        <ul>
-          <li>
-            <a data-href="#about" href="#about">
-              <HoverLinks text="ABOUT" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#work" href="#work">
-              <HoverLinks text="WORK" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#contact" href="#contact">
-              <HoverLinks text="CONTACT" />
-            </a>
-          </li>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* Desktop nav */}
+        <ul className="nav-desktop">
+          <li><a data-href="#about" href="#about"><HoverLinks text="ABOUT" /></a></li>
+          <li><a data-href="#work" href="#work"><HoverLinks text="WORK" /></a></li>
+          <li><a data-href="#blog" href="#blog"><HoverLinks text="BLOG" /></a></li>
+          <li><a data-href="#contact" href="#contact"><HoverLinks text="CONTACT" /></a></li>
         </ul>
       </div>
+
+      {/* Mobile menu overlay */}
+      <div className={`mobile-menu ${menuOpen ? "mobile-menu-open" : ""}`}>
+        <ul>
+          <li><a href="#about" onClick={handleNavClick}>About</a></li>
+          <li><a href="#work" onClick={handleNavClick}>Work</a></li>
+          <li><a href="#blog" onClick={handleNavClick}>Blog</a></li>
+          <li><a href="#contact" onClick={handleNavClick}>Contact</a></li>
+        </ul>
+      </div>
+      {menuOpen && <div className="mobile-overlay" onClick={() => setMenuOpen(false)} />}
 
       <div className="landing-circle1"></div>
       <div className="landing-circle2"></div>

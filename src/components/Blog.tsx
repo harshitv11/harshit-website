@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import "./styles/Blog.css";
 import { MdArrowOutward } from "react-icons/md";
+import { Link } from "react-router-dom";
 import defaultPosts from "../data/blogs.json";
+import { slugify } from "../utils/seo";
 
 export interface BlogPost {
   id: number;
@@ -87,9 +89,9 @@ const Blog = () => {
                 <div className="blog-meta">
                   <span>{post.date}</span>
                   <span>{post.readTime}</span>
-                  <a href="#" className="blog-read-link" data-cursor="disable">
+                  <Link to={`/blog/${slugify(post.title)}`} className="blog-read-link">
                     Read <MdArrowOutward />
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}

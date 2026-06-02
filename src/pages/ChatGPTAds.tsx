@@ -1,9 +1,23 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./ChatGPTAds.css";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const ChatGPTAds = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const r1 = useScrollReveal();
+  const r2 = useScrollReveal();
+  const r3 = useScrollReveal();
+  const r4 = useScrollReveal();
+  const r5 = useScrollReveal();
+  const r6 = useScrollReveal();
+  const r7 = useScrollReveal();
+  const r8 = useScrollReveal();
+  const rCards = useScrollReveal();
+  const rSteps = useScrollReveal();
+  const rResults = useScrollReveal();
+  const rStats = useScrollReveal();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -97,11 +111,11 @@ const ChatGPTAds = () => {
       {/* ── SECTION 1 — What Are ChatGPT Ads ── */}
       <section className="ca-section">
         <div className="ca-container">
-          <h2>What Are ChatGPT Ads?</h2>
+          <h2 ref={r1} className="reveal">What Are ChatGPT Ads?</h2>
           <p>ChatGPT Ads are sponsored placements inside ChatGPT's interface — appearing when users ask questions relevant to your product or service. Unlike Google, where users are browsing, or Meta, where they're scrolling, ChatGPT users are in active problem-solving mode.</p>
           <p>They've typed a specific question. They want a specific answer. That's a higher-intent audience than almost any other paid channel right now.</p>
           <p>Perplexity Ads work the same way — your brand appears inside AI-generated answers to queries your customers are already searching for.</p>
-          <div className="ca-cards">
+          <div ref={rCards} className="ca-cards stagger">
             <div className="ca-card"><div className="ca-card-icon">🎯</div><h4>Higher Intent</h4><p>Users are actively solving a problem — not passively scrolling</p></div>
             <div className="ca-card"><div className="ca-card-icon">💰</div><h4>Lower CPCs</h4><p>The auction isn't competitive yet — costs are a fraction of Google</p></div>
             <div className="ca-card"><div className="ca-card-icon">🚀</div><h4>First-Mover Edge</h4><p>Be in the channel before your competitors even know it exists</p></div>
@@ -112,7 +126,7 @@ const ChatGPTAds = () => {
       {/* ── SECTION 2 — Who I Work With ── */}
       <section className="ca-section ca-section-alt">
         <div className="ca-container">
-          <h2>Who I Work With</h2>
+          <h2 ref={r2} className="reveal">Who I Work With</h2>
           <p>I work with B2B business owners and personal brand operators in the US, UK, and Australia who:</p>
           <ul className="ca-list">
             <li>Are spending $2,000–$20,000/month on Meta or Google and seeing returns decline</li>
@@ -126,7 +140,7 @@ const ChatGPTAds = () => {
       {/* ── SECTION 3 — What's Included ── */}
       <section className="ca-section">
         <div className="ca-container">
-          <h2>What the Service Includes</h2>
+          <h2 ref={r3} className="reveal">What the Service Includes</h2>
           <div className="ca-services">
             <div className="ca-service-item"><h4>Strategy</h4><p>Every campaign starts with an audit of your offer, audience, and current ad performance. I map the exact queries your buyers are asking on ChatGPT and Perplexity, then build a targeting strategy around those moments.</p></div>
             <div className="ca-service-item"><h4>Creative</h4><p>AI platform ads require a different creative approach than Meta or Google. Copy needs to match the conversational context of the platform — I write and test ad copy built specifically for how people interact with AI answers.</p></div>
@@ -145,8 +159,8 @@ const ChatGPTAds = () => {
       {/* ── HOW IT WORKS ── */}
       <section className="ca-section ca-section-alt">
         <div className="ca-container">
-          <h2>How It Works</h2>
-          <div className="ca-steps">
+          <h2 ref={r4} className="reveal">How It Works</h2>
+          <div ref={rSteps} className="ca-steps stagger">
             <div className="ca-step">
               <div className="ca-step-num">01</div>
               <div className="ca-step-content">
@@ -177,9 +191,9 @@ const ChatGPTAds = () => {
       {/* ── BY THE NUMBERS ── */}
       <section className="ca-section">
         <div className="ca-container">
-          <h2>By The Numbers</h2>
+          <h2 ref={r5} className="reveal">By The Numbers</h2>
           <p className="ca-section-sub">Results from campaigns run on AI platforms. <em>(Real numbers — updated as campaigns complete.)</em></p>
-          <div className="ca-results">
+          <div ref={rResults} className="ca-results stagger">
             <div className="ca-result-card">
               <h3>—</h3>
               <p>Average CPC reduction vs Google</p>
@@ -207,11 +221,11 @@ const ChatGPTAds = () => {
       {/* ── WHY NOW ── */}
       <section className="ca-section ca-section-alt">
         <div className="ca-container">
-          <h2>Why ChatGPT Ads in 2025</h2>
+          <h2 ref={r6} className="reveal">Why ChatGPT Ads in 2025</h2>
           <p>AI search is growing faster than any channel since mobile. ChatGPT hit 100 million weekly active users in 2023 — that number has continued climbing. Perplexity is processing hundreds of millions of queries per month.</p>
           <p>The brands advertising there today are paying a fraction of what Google and Meta cost per click, because the auction is not yet competitive.</p>
           <p>That window closes as more agencies figure this out. The brands that move now will have performance data, optimised campaigns, and category positioning before the market gets crowded.</p>
-          <div className="ca-stats">
+          <div ref={rStats} className="ca-stats stagger">
             <div className="ca-stat"><h3>100M+</h3><p>ChatGPT weekly active users</p></div>
             <div className="ca-stat"><h3>~70%</h3><p>Lower CPCs vs Google on average</p></div>
             <div className="ca-stat"><h3>2025</h3><p>The window is open — for now</p></div>
@@ -222,8 +236,8 @@ const ChatGPTAds = () => {
       {/* ── PRICING ── */}
       <section className="ca-section">
         <div className="ca-container">
-          <h2>Pricing</h2>
-          <div className="ca-pricing">
+          <h2 ref={r7} className="reveal">Pricing</h2>
+          <div ref={r8} className="ca-pricing reveal">
             <div className="ca-price-card">
               <h3>From <span>$1,000</span><small>/month</small></h3>
               <p>Retainers start at $1,000/month and scale to $2,000/month depending on campaign complexity and platforms covered.</p>

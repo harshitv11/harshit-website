@@ -13,8 +13,7 @@ const HomePage = () => {
   useEffect(() => {
     setMeta(
       "Harshit Mutha — AI Ads Expert & ChatGPT Ads Specialist",
-      "Harshit Mutha helps brands scale using AI-powered advertising, ChatGPT Ads, and performance marketing systems that turn ad spend into predictable revenue.",
-      window.location.origin
+      "Harshit Mutha helps brands scale using AI-powered advertising, ChatGPT Ads, and performance marketing systems that turn ad spend into predictable revenue."
     );
   }, []);
 

@@ -20,7 +20,7 @@ const BlogPostPage = () => {
       setMeta(
         `${found.title} | Harshit Mutha`,
         found.excerpt,
-        `${window.location.origin}/blog/${slug}`
+        `/blog/${slug}`
       );
     }
     window.scrollTo(0, 0);

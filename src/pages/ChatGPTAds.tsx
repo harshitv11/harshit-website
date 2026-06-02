@@ -5,6 +5,7 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const ChatGPTAds = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [showToast, setShowToast] = useState(false);
 
   const r1 = useScrollReveal();
   const r2 = useScrollReveal();
@@ -20,6 +21,11 @@ const ChatGPTAds = () => {
   const rStats = useScrollReveal();
 
   useEffect(() => {
+    // Portfolio toast — show every 45 seconds
+    const showIt = () => { setShowToast(true); setTimeout(() => setShowToast(false), 6000); };
+    const toastTimer = setInterval(showIt, 45000);
+    setTimeout(showIt, 8000); // first show after 8s
+
     // Unlock scroll — main site locks body overflow for GSAP smoother
     document.body.style.overflow = "auto";
     document.body.style.height = "auto";
@@ -68,6 +74,7 @@ const ChatGPTAds = () => {
     document.head.appendChild(s2);
 
     return () => {
+      clearInterval(toastTimer);
       // Restore when leaving page
       document.body.style.overflow = "hidden";
       document.body.style.height = "";
@@ -293,6 +300,21 @@ const ChatGPTAds = () => {
           <p className="ca-no-lockin">No lock-in. Cancel anytime.</p>
         </div>
       </section>
+
+      {/* Portfolio Toast */}
+      <div className={`ca-toast ${showToast ? "ca-toast-show" : ""}`}>
+        <div className="ca-toast-inner">
+          <div className="ca-toast-avatar">HM</div>
+          <div className="ca-toast-text">
+            <strong>Harshit Mutha</strong>
+            <span>Want to see my full portfolio?</span>
+          </div>
+          <Link to="/" className="ca-toast-btn" onClick={() => setShowToast(false)}>
+            Visit Portfolio →
+          </Link>
+          <button className="ca-toast-close" onClick={() => setShowToast(false)}>✕</button>
+        </div>
+      </div>
 
       {/* Footer */}
       <footer className="ca-footer">

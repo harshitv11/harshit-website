@@ -1,19 +1,16 @@
-import {
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
-import { TbNotes } from "react-icons/tb";
 import { useEffect } from "react";
-import HoverLinks from "./HoverLinks";
 
 const SocialIcons = () => {
   useEffect(() => {
     const social = document.getElementById("social") as HTMLElement;
+    if (!social) return;
 
     social.querySelectorAll("span").forEach((item) => {
       const elem = item as HTMLElement;
       const link = elem.querySelector("a") as HTMLElement;
+      if (!link) return;
 
       const rect = elem.getBoundingClientRect();
       let mouseX = rect.width / 2;
@@ -24,17 +21,14 @@ const SocialIcons = () => {
       const updatePosition = () => {
         currentX += (mouseX - currentX) * 0.1;
         currentY += (mouseY - currentY) * 0.1;
-
         link.style.setProperty("--siLeft", `${currentX}px`);
         link.style.setProperty("--siTop", `${currentY}px`);
-
         requestAnimationFrame(updatePosition);
       };
 
       const onMouseMove = (e: MouseEvent) => {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-
         if (x < 40 && x > 10 && y < 40 && y > 5) {
           mouseX = x;
           mouseY = y;
@@ -45,7 +39,6 @@ const SocialIcons = () => {
       };
 
       document.addEventListener("mousemove", onMouseMove);
-
       updatePosition();
 
       return () => {
@@ -54,37 +47,33 @@ const SocialIcons = () => {
     });
   }, []);
 
+  const handleConnect = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const contact = document.getElementById("contact");
+    if (contact) {
+      contact.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // fallback for GSAP smoother on desktop
+      window.location.hash = "#contact";
+    }
+  };
+
   return (
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
-          <a
-            href="#"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="#" target="_blank" rel="noreferrer">
             <FaLinkedinIn />
-          </a>
-        </span>
-        <span>
-          <a
-            href="#"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaInstagram />
           </a>
         </span>
       </div>
       <a
         className="resume-button"
         href="#contact"
+        onClick={handleConnect}
         data-cursor="disable"
       >
-        <HoverLinks text="HIRE ME" />
-        <span>
-          <TbNotes />
-        </span>
+        LET'S CONNECT
       </a>
     </div>
   );

@@ -21,6 +21,8 @@
   letter-spacing: 7px;
   font-weight: 400;
   color: var(--accentColor);
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .about-me p {
@@ -29,6 +31,23 @@
   line-height: 36px;
   letter-spacing: 1px;
   color: #0F172A;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Mobile — force visible, smaller font */
+@media only screen and (max-width: 600px) {
+  .about-me {
+    padding: 40px 0px;
+  }
+  .about-me h3 {
+    font-size: 16px;
+    letter-spacing: 4px;
+  }
+  .about-me p {
+    font-size: 22px;
+    line-height: 30px;
+  }
 }
 
 @media only screen and (min-width: 600px) {

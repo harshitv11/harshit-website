@@ -6,6 +6,11 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://www.harshitmutha.digital/chatgpt-ads</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.harshitmutha.digital/blog/how-chatgpt-ads-are-changing-performance-marketing-forever</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>

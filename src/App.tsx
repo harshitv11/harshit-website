@@ -7,6 +7,7 @@ const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
 const Admin = lazy(() => import("./components/Admin"));
 const BlogPostPage = lazy(() => import("./pages/BlogPost"));
+const ChatGPTAdsPage = lazy(() => import("./pages/ChatGPTAds"));
 import { LoadingProvider } from "./context/LoadingProvider";
 
 const HomePage = () => {
@@ -48,6 +49,11 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/chatgpt-ads" element={
+          <Suspense fallback={<div style={{ display:"flex", alignItems:"center", justifyContent:"center", height:"100vh", fontFamily:"Geist,sans-serif", color:"#6366F1" }}>Loading...</div>}>
+            <ChatGPTAdsPage />
+          </Suspense>
+        } />
         <Route path="/blog/:slug" element={
           <Suspense fallback={<div style={{ display:"flex", alignItems:"center", justifyContent:"center", height:"100vh", fontFamily:"Geist,sans-serif", color:"#6366F1" }}>Loading...</div>}>
             <BlogPostPage />

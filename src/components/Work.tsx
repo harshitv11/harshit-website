@@ -1,152 +1,63 @@
-import { useState, useCallback, useEffect, useRef } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
     title: "AI Ads System",
     category: "ChatGPT-Powered Ad Campaigns",
-    tools: "ChatGPT Ads, Meta Ads, AI Creative Automation, Performance Tracking",
+    tools: "ChatGPT Ads · Meta Ads · AI Creative Automation · Performance Tracking",
     image: "/images/callhq.png",
     link: "#",
   },
   {
     title: "Performance Funnels",
     category: "Lead Generation & Conversion",
-    tools: "Meta Ads, Google Ads, Landing Pages, A/B Testing, CRO",
+    tools: "Meta Ads · Google Ads · Landing Pages · A/B Testing · CRO",
     image: "/images/whatsapp.png",
     link: "#",
   },
   {
     title: "AI Growth Strategy",
     category: "Brand Scaling with AI",
-    tools: "AI Automation, Growth Strategy, Email Marketing, Brand Positioning",
+    tools: "AI Automation · Growth Strategy · Email Marketing · Brand Positioning",
     image: "/images/broki.png",
     link: "#",
   },
   {
     title: "Creative Automation",
     category: "AI-Powered Ad Creatives",
-    tools: "AI Creative Systems, Video Ads, Copywriting, Visual Branding",
+    tools: "AI Creative Systems · Video Ads · Copywriting · Visual Branding",
     image: "/images/orrdr.png",
     link: "#",
   },
 ];
 
+// Duplicate for seamless infinite loop
+const allProjects = [...projects, ...projects];
+
 const Work = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const goToSlide = useCallback(
-    (index: number) => {
-      if (isAnimating) return;
-      setIsAnimating(true);
-      setCurrentIndex(index);
-      setTimeout(() => setIsAnimating(false), 500);
-    },
-    [isAnimating]
-  );
-
-  const goToPrev = useCallback(() => {
-    const newIndex = currentIndex === 0 ? projects.length - 1 : currentIndex - 1;
-    goToSlide(newIndex);
-  }, [currentIndex, goToSlide]);
-
-  const goToNext = useCallback(() => {
-    const newIndex = currentIndex === projects.length - 1 ? 0 : currentIndex + 1;
-    goToSlide(newIndex);
-  }, [currentIndex, goToSlide]);
-
-  // Auto-play every 3 seconds, pause on hover
-  useEffect(() => {
-    if (isPaused) return;
-    timerRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
-    }, 3000);
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, [isPaused]);
-
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
-        <h2>
-          My <span>Work</span>
-        </h2>
+        <h2>My <span>Work</span></h2>
+      </div>
 
-        <div className="carousel-wrapper" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
-          {/* Navigation Arrows */}
-          <button
-            className="carousel-arrow carousel-arrow-left"
-            onClick={goToPrev}
-            aria-label="Previous project"
-            data-cursor="disable"
-          >
-            <MdArrowBack />
-          </button>
-          <button
-            className="carousel-arrow carousel-arrow-right"
-            onClick={goToNext}
-            aria-label="Next project"
-            data-cursor="disable"
-          >
-            <MdArrowForward />
-          </button>
-
-          {/* Slides */}
-          <div className="carousel-track-container">
-            <div
-              className="carousel-track"
-              style={{
-                transform: `translateX(-${currentIndex * 100}%)`,
-              }}
-            >
-              {projects.map((project, index) => (
-                <div className="carousel-slide" key={index}>
-                  <div className="carousel-content">
-                    <div className="carousel-info">
-                      <div className="carousel-number">
-                        <h3>0{index + 1}</h3>
-                      </div>
-                      <div className="carousel-details">
-                        <h4>{project.title}</h4>
-                        <p className="carousel-category">
-                          {project.category}
-                        </p>
-                        <div className="carousel-tools">
-                          <span className="tools-label">Tools & Features</span>
-                          <p>{project.tools}</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="carousel-image-wrapper">
-                      <WorkImage
-                        image={project.image}
-                        alt={project.title}
-                        link={project.link}
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
+      {/* Infinite scrolling ticker */}
+      <div className="work-ticker-wrapper">
+        <div className="work-ticker">
+          {allProjects.map((project, index) => (
+            <div className="work-ticker-card" key={index}>
+              <div className="work-ticker-image">
+                <WorkImage image={project.image} alt={project.title} link={project.link} />
+              </div>
+              <div className="work-ticker-info">
+                <span className="work-ticker-num">0{(index % projects.length) + 1}</span>
+                <h4>{project.title}</h4>
+                <p className="work-ticker-cat">{project.category}</p>
+                <p className="work-ticker-tools">{project.tools}</p>
+              </div>
             </div>
-          </div>
-
-          {/* Dot Indicators */}
-          <div className="carousel-dots">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                className={`carousel-dot ${index === currentIndex ? "carousel-dot-active" : ""
-                  }`}
-                onClick={() => goToSlide(index)}
-                aria-label={`Go to project ${index + 1}`}
-                data-cursor="disable"
-              />
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </div>

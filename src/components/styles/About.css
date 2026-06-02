@@ -11,9 +11,34 @@
 }
 .about-me {
   padding: 50px 0px;
-  padding-bottom: 0;
+  padding-bottom: 60px;
   width: 500px;
   max-width: calc(100% - 15px);
+}
+
+.about-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #6366F1, #38BDF8);
+  color: #ffffff !important;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Geist", sans-serif;
+  letter-spacing: 0.3px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  z-index: 10;
+}
+
+.about-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.35);
+  color: #ffffff !important;
 }
 .about-me h3 {
   font-size: 25px;
@@ -76,7 +101,13 @@
   }
   .about-me {
     padding: 0px;
+    padding-bottom: 40px;
     width: 50%;
+  }
+
+  .about-cta {
+    font-size: 14px;
+    padding: 12px 24px;
   }
   .about-me p {
     font-size: 1.9vw;

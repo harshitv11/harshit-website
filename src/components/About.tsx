@@ -13,6 +13,7 @@ const About = () => {
           and leveraging the latest AI tools to stay ahead in a fast-moving
           digital landscape.
         </p>
+        <a href="#contact" className="about-cta">Let's Work Together →</a>
       </div>
     </div>
   );

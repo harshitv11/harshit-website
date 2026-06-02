@@ -1,12 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./ChatGPTAds.css";
 
 const ChatGPTAds = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    // Meta
     document.title = "ChatGPT Ads Expert — Run Ads on ChatGPT & AI Platforms | Harshit Mutha";
     const setTag = (attr: string, val: string, content: string) => {
       let el = document.querySelector(`meta[${attr}="${val}"]`) as HTMLMetaElement;
@@ -16,38 +17,30 @@ const ChatGPTAds = () => {
     setTag("name", "description", "Harshit Mutha runs paid ad campaigns on ChatGPT, Perplexity, and AI platforms for B2B brands in the US, UK, and Australia. Retainers from $1,000/month. Book a call.");
     setTag("property", "og:title", "ChatGPT Ads Expert — Run Ads on ChatGPT & AI Platforms | Harshit Mutha");
     setTag("property", "og:url", "https://www.harshitmutha.digital/chatgpt-ads");
+
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
     canonical.href = "https://www.harshitmutha.digital/chatgpt-ads";
 
-    // Schema — Service
     const s1 = document.createElement("script");
     s1.id = "schema-chatgpt-service";
     s1.type = "application/ld+json";
     s1.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Service",
+      "@context": "https://schema.org", "@type": "Service",
       "name": "ChatGPT Ads Management",
       "provider": { "@type": "Person", "name": "Harshit Mutha", "url": "https://www.harshitmutha.digital" },
-      "description": "ChatGPT Ads and AI platform advertising management for B2B brands in the US, UK, and Australia. Includes strategy, creative, campaign management, and reporting.",
+      "description": "ChatGPT Ads and AI platform advertising management for B2B brands in the US, UK, and Australia.",
       "areaServed": ["US", "GB", "AU"],
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "price": "1000",
-        "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1000", "priceCurrency": "USD", "unitText": "MONTH" }
-      },
+      "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "1000", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1000", "priceCurrency": "USD", "unitText": "MONTH" } },
       "serviceType": "AI Platform Advertising"
     });
     document.head.appendChild(s1);
 
-    // Schema — FAQPage
     const s2 = document.createElement("script");
     s2.id = "schema-chatgpt-faq";
     s2.type = "application/ld+json";
     s2.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
+      "@context": "https://schema.org", "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "What platforms do you run ChatGPT Ads on?", "acceptedAnswer": { "@type": "Answer", "text": "Primarily ChatGPT (via OpenAI's ad platform) and Perplexity. As other AI platforms open up advertising inventory, I add those to the mix based on relevance to your audience." } },
         { "@type": "Question", "name": "How is ChatGPT advertising different from Google or Meta Ads?", "acceptedAnswer": { "@type": "Answer", "text": "Google and Meta target users based on demographics, interests, and browsing behaviour. ChatGPT and Perplexity target users at the exact moment they ask a question your product answers. The intent is higher and the competition is lower." } },
@@ -63,8 +56,6 @@ const ChatGPTAds = () => {
     };
   }, []);
 
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
   const faqs = [
     { q: "What platforms do you run ads on?", a: "Primarily ChatGPT (via OpenAI's ad platform) and Perplexity. As other AI platforms open up advertising inventory, I add those to the mix based on relevance to your audience." },
     { q: "How is this different from Google or Meta Ads?", a: "Google and Meta target users based on demographics, interests, and browsing behaviour. ChatGPT and Perplexity target users at the exact moment they ask a question your product answers. The intent is higher and the competition is lower — for now." },
@@ -76,23 +67,35 @@ const ChatGPTAds = () => {
 
   return (
     <div className="ca-wrap">
+
       {/* Nav */}
       <nav className="ca-nav">
         <Link to="/" className="ca-logo">HM</Link>
         <Link to="/" className="ca-back">← Home</Link>
       </nav>
 
-      {/* Hero */}
+      {/* ── HERO ── */}
       <section className="ca-hero">
         <div className="ca-hero-inner">
           <span className="ca-badge">ChatGPT Ads Expert</span>
           <h1>ChatGPT Ads Expert<br />for B2B Brands</h1>
           <p className="ca-subhead">Most brands are still fighting over the same Google and Meta inventory. I run ads where your competitors haven't shown up yet — ChatGPT, Perplexity, and AI-native platforms.</p>
-          <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta">Book a Call →</a>
+
+          {/* Photo below subheadline */}
+          <div className="ca-hero-photo">
+            <div className="ca-avatar">
+              <img src="/images/placeholder.webp" alt="Harshit Mutha — AI Ads Expert" className="ca-avatar-img" />
+              <div className="ca-avatar-fallback">HM</div>
+            </div>
+            <div className="ca-hero-bio">
+              <strong>Harshit Mutha</strong>
+              <span>AI Ads Expert · Based in India · Clients in US, UK & AU</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Section 1 */}
+      {/* ── SECTION 1 — What Are ChatGPT Ads ── */}
       <section className="ca-section">
         <div className="ca-container">
           <h2>What Are ChatGPT Ads?</h2>
@@ -107,7 +110,7 @@ const ChatGPTAds = () => {
         </div>
       </section>
 
-      {/* Section 2 */}
+      {/* ── SECTION 2 — Who I Work With ── */}
       <section className="ca-section ca-section-alt">
         <div className="ca-container">
           <h2>Who I Work With</h2>
@@ -121,7 +124,7 @@ const ChatGPTAds = () => {
         </div>
       </section>
 
-      {/* Section 3 */}
+      {/* ── SECTION 3 — What's Included ── */}
       <section className="ca-section">
         <div className="ca-container">
           <h2>What the Service Includes</h2>
@@ -131,10 +134,78 @@ const ChatGPTAds = () => {
             <div className="ca-service-item"><h4>Campaign Management</h4><p>I set up, launch, and manage your campaigns end-to-end. Weekly performance reviews, ongoing creative testing, and clear reporting — no black boxes.</p></div>
             <div className="ca-service-item"><h4>Reporting</h4><p>You get a straightforward report each week: what ran, what converted, what we're testing next. No vanity metrics.</p></div>
           </div>
+
+          {/* CTA after What's Included */}
+          <div className="ca-cta-block">
+            <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta">Book a Call →</a>
+            <p className="ca-no-lockin">No lock-in. Cancel anytime.</p>
+          </div>
         </div>
       </section>
 
-      {/* Section 4 */}
+      {/* ── HOW IT WORKS ── */}
+      <section className="ca-section ca-section-alt">
+        <div className="ca-container">
+          <h2>How It Works</h2>
+          <div className="ca-steps">
+            <div className="ca-step">
+              <div className="ca-step-num">01</div>
+              <div className="ca-step-content">
+                <h4>Discovery Call</h4>
+                <p>30 minutes. We look at your offer, current ad performance, and target audience. I'll tell you honestly whether ChatGPT Ads are the right move right now — and what to expect.</p>
+              </div>
+            </div>
+            <div className="ca-step-arrow">→</div>
+            <div className="ca-step">
+              <div className="ca-step-num">02</div>
+              <div className="ca-step-content">
+                <h4>Strategy & Setup</h4>
+                <p>I build your targeting strategy, write the first batch of ad creative, set up your campaigns, and get everything ready to go live. This typically takes 5–7 days.</p>
+              </div>
+            </div>
+            <div className="ca-step-arrow">→</div>
+            <div className="ca-step">
+              <div className="ca-step-num">03</div>
+              <div className="ca-step-content">
+                <h4>Launch & Weekly Reporting</h4>
+                <p>Campaigns go live. You get a clear weekly report: what ran, what converted, what we're testing next. Ongoing optimisation every week — no set-and-forget.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── BY THE NUMBERS ── */}
+      <section className="ca-section">
+        <div className="ca-container">
+          <h2>By The Numbers</h2>
+          <p className="ca-section-sub">Results from campaigns run on AI platforms. <em>(Real numbers — updated as campaigns complete.)</em></p>
+          <div className="ca-results">
+            <div className="ca-result-card">
+              <h3>—</h3>
+              <p>Average CPC reduction vs Google</p>
+              <span>Placeholder — updating soon</span>
+            </div>
+            <div className="ca-result-card">
+              <h3>—</h3>
+              <p>Qualified leads generated</p>
+              <span>Placeholder — updating soon</span>
+            </div>
+            <div className="ca-result-card">
+              <h3>—</h3>
+              <p>Months average client retention</p>
+              <span>Placeholder — updating soon</span>
+            </div>
+            <div className="ca-result-card">
+              <h3>$1K–$2K</h3>
+              <p>Monthly retainer range</p>
+              <span>No lock-in on first engagement</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY NOW ── */}
       <section className="ca-section ca-section-alt">
         <div className="ca-container">
           <h2>Why ChatGPT Ads in 2025</h2>
@@ -149,7 +220,7 @@ const ChatGPTAds = () => {
         </div>
       </section>
 
-      {/* Section 5 — Pricing */}
+      {/* ── PRICING ── */}
       <section className="ca-section">
         <div className="ca-container">
           <h2>Pricing</h2>
@@ -163,12 +234,13 @@ const ChatGPTAds = () => {
                 <li>I'd rather earn the retainer than lock you in</li>
               </ul>
               <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta">Book a Call →</a>
+              <p className="ca-no-lockin">No lock-in. Cancel anytime.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 6 — FAQ */}
+      {/* ── FAQ ── */}
       <section className="ca-section ca-section-alt">
         <div className="ca-container">
           <h2>Frequently Asked Questions</h2>
@@ -186,13 +258,14 @@ const ChatGPTAds = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ── FINAL CTA ── */}
       <section className="ca-section ca-cta-section">
         <div className="ca-container ca-cta-inner">
           <h2>Book a Call</h2>
           <p>30 minutes. We look at your current setup, your offer, and whether ChatGPT Ads make sense for your business right now.</p>
           <p className="ca-note">No pitch deck. No sales pressure. If it's not the right fit, I'll tell you.</p>
           <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta ca-cta-lg">Book a Call →</a>
+          <p className="ca-no-lockin">No lock-in. Cancel anytime.</p>
         </div>
       </section>
 
@@ -201,9 +274,9 @@ const ChatGPTAds = () => {
         <Link to="/">← Back to harshitmutha.digital</Link>
         <p>© 2026 Harshit Mutha</p>
       </footer>
+
     </div>
   );
 };
 
-import { useState } from "react";
 export default ChatGPTAds;

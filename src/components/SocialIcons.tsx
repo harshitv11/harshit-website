@@ -1,6 +1,7 @@
 import { FaLinkedinIn } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { useEffect } from "react";
+import { smoother } from "./Navbar";
 
 const SocialIcons = () => {
   useEffect(() => {
@@ -49,12 +50,10 @@ const SocialIcons = () => {
 
   const handleConnect = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const contact = document.getElementById("contact");
-    if (contact) {
-      contact.scrollIntoView({ behavior: "smooth" });
+    if (smoother) {
+      smoother.scrollTo("#contact", true, "top top");
     } else {
-      // fallback for GSAP smoother on desktop
-      window.location.hash = "#contact";
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
     }
   };
 

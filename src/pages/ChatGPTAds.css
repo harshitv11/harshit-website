@@ -241,12 +241,6 @@
   flex-shrink: 0;
   position: relative;
 }
-.ca-avatar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
 .ca-avatar-fallback {
   position: absolute;
   inset: 0;

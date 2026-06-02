@@ -84,7 +84,6 @@ const ChatGPTAds = () => {
           {/* Photo below subheadline */}
           <div className="ca-hero-photo">
             <div className="ca-avatar">
-              <img src="/images/placeholder.webp" alt="Harshit Mutha — AI Ads Expert" className="ca-avatar-img" />
               <div className="ca-avatar-fallback">HM</div>
             </div>
             <div className="ca-hero-bio">

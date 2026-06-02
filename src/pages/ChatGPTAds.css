@@ -271,6 +271,25 @@
 .ca-footer a { color: #6366F1; text-decoration: none; }
 .ca-footer p { margin: 0; }
 
+/* Portfolio link */
+.ca-portfolio-link {
+  font-size: 14px;
+  color: #94A3B8;
+  margin: 16px 0 0;
+  animation: fadeUp 0.7s ease 0.45s both;
+}
+.ca-portfolio-link a {
+  color: #A5B4FC;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(165,180,252,0.3);
+  transition: color 0.2s, border-color 0.2s;
+}
+.ca-portfolio-link a:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.5);
+}
+
 /* Hero Photo */
 .ca-hero-photo {
   display: flex;

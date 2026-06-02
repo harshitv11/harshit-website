@@ -101,6 +101,12 @@ const ChatGPTAds = () => {
           <h1>ChatGPT Ads Expert<br />for B2B Brands</h1>
           <p className="ca-subhead">Most brands are still fighting over the same Google and Meta inventory. I run ads where your competitors haven't shown up yet — ChatGPT, Perplexity, and AI-native platforms.</p>
 
+          {/* Portfolio link */}
+          <p className="ca-portfolio-link">
+            Want to see my full work and background?{" "}
+            <Link to="/">View Portfolio →</Link>
+          </p>
+
           {/* Photo below subheadline */}
           <div className="ca-hero-photo">
             <div className="ca-avatar">

@@ -24,7 +24,13 @@ const BlogPostPage = () => {
       );
       setBlogSchema(found.title, found.excerpt, found.date, slug!);
     }
+    document.body.style.overflow = "auto";
+    document.body.style.height = "auto";
     window.scrollTo(0, 0);
+    return () => {
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "";
+    };
   }, [slug]);
 
   if (!post) return (

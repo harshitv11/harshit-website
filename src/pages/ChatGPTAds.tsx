@@ -20,6 +20,9 @@ const ChatGPTAds = () => {
   const rStats = useScrollReveal();
 
   useEffect(() => {
+    // Unlock scroll — main site locks body overflow for GSAP smoother
+    document.body.style.overflow = "auto";
+    document.body.style.height = "auto";
     window.scrollTo(0, 0);
 
     document.title = "ChatGPT Ads Expert — Run Ads on ChatGPT & AI Platforms | Harshit Mutha";
@@ -65,6 +68,9 @@ const ChatGPTAds = () => {
     document.head.appendChild(s2);
 
     return () => {
+      // Restore when leaving page
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "";
       document.getElementById("schema-chatgpt-service")?.remove();
       document.getElementById("schema-chatgpt-faq")?.remove();
     };

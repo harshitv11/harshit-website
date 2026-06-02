@@ -31,6 +31,36 @@ function setTag(tag: string, attr: string, attrVal: string, key: string, val: st
   el.setAttribute(key, val);
 }
 
+export function setBlogSchema(title: string, excerpt: string, date: string, slug: string) {
+  const existing = document.getElementById("blog-schema");
+  if (existing) existing.remove();
+  const script = document.createElement("script");
+  script.id = "blog-schema";
+  script.type = "application/ld+json";
+  script.text = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": excerpt,
+    "datePublished": date,
+    "url": `https://www.harshitmutha.digital/blog/${slug}`,
+    "author": {
+      "@type": "Person",
+      "name": "Harshit Mutha",
+      "url": "https://www.harshitmutha.digital"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Harshit Mutha"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.harshitmutha.digital/blog/${slug}`
+    }
+  });
+  document.head.appendChild(script);
+}
+
 export function slugify(text: string) {
   return text.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }

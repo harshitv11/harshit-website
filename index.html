@@ -31,6 +31,54 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- JSON-LD Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.harshitmutha.digital/#person",
+        "name": "Harshit Mutha",
+        "jobTitle": "AI Ads Expert & ChatGPT Ads Specialist",
+        "description": "Harshit Mutha helps brands scale using AI-powered advertising, ChatGPT Ads, and performance marketing systems.",
+        "url": "https://www.harshitmutha.digital",
+        "sameAs": [],
+        "knowsAbout": ["AI Ads", "ChatGPT Ads", "Meta Ads", "Google Ads", "Performance Marketing", "AI Automation", "Growth Strategy"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.harshitmutha.digital/#website",
+        "url": "https://www.harshitmutha.digital",
+        "name": "Harshit Mutha — AI Ads Expert",
+        "description": "AI Ads Expert helping brands scale with ChatGPT Ads and performance marketing.",
+        "publisher": {
+          "@id": "https://www.harshitmutha.digital/#person"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.harshitmutha.digital/#webpage",
+        "url": "https://www.harshitmutha.digital",
+        "name": "Harshit Mutha — AI Ads Expert & ChatGPT Ads Specialist",
+        "isPartOf": { "@id": "https://www.harshitmutha.digital/#website" },
+        "about": { "@id": "https://www.harshitmutha.digital/#person" },
+        "description": "Harshit Mutha helps brands scale using AI-powered advertising, ChatGPT Ads, and performance marketing systems."
+      },
+      {
+        "@type": "Blog",
+        "@id": "https://www.harshitmutha.digital/#blog",
+        "url": "https://www.harshitmutha.digital/#blog",
+        "name": "AI Ads & Performance Marketing Insights",
+        "description": "Articles on AI Ads, ChatGPT Marketing, AI Automation, and Digital Growth by Harshit Mutha.",
+        "publisher": {
+          "@id": "https://www.harshitmutha.digital/#person"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div id="root"></div>

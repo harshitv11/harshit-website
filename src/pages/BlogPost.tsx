@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { BlogPost as BlogPostType } from "../components/Blog";
 import defaultPosts from "../data/blogs.json";
-import { setMeta, slugify } from "../utils/seo";
+import { setMeta, setBlogSchema, slugify } from "../utils/seo";
 import "./BlogPost.css";
 
 const BlogPostPage = () => {
@@ -22,6 +22,7 @@ const BlogPostPage = () => {
         found.excerpt,
         `/blog/${slug}`
       );
+      setBlogSchema(found.title, found.excerpt, found.date, slug!);
     }
     window.scrollTo(0, 0);
   }, [slug]);

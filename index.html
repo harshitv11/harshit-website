@@ -33,47 +33,70 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <!-- JSON-LD Schema Markup -->
+
+  <!-- 1. ProfessionalService — shows business info in Google -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
+    "@type": "ProfessionalService",
+    "name": "Harshit Mutha — AI Ads Expert",
+    "url": "https://www.harshitmutha.digital",
+    "description": "AI Ads Expert helping brands scale using ChatGPT Ads, Meta Ads, Google Ads, and AI-powered performance marketing systems.",
+    "founder": {
+      "@type": "Person",
+      "name": "Harshit Mutha",
+      "jobTitle": "AI Ads Expert & ChatGPT Ads Specialist"
+    },
+    "areaServed": "Worldwide",
+    "serviceType": ["AI Advertising", "ChatGPT Ads", "Performance Marketing", "Meta Ads", "Google Ads", "AI Automation"],
+    "priceRange": "$$"
+  }
+  </script>
+
+  <!-- 2. FAQPage — shows FAQ dropdowns in Google search results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
       {
-        "@type": "Person",
-        "@id": "https://www.harshitmutha.digital/#person",
-        "name": "Harshit Mutha",
-        "jobTitle": "AI Ads Expert & ChatGPT Ads Specialist",
-        "description": "Harshit Mutha helps brands scale using AI-powered advertising, ChatGPT Ads, and performance marketing systems.",
-        "url": "https://www.harshitmutha.digital",
-        "sameAs": [],
-        "knowsAbout": ["AI Ads", "ChatGPT Ads", "Meta Ads", "Google Ads", "Performance Marketing", "AI Automation", "Growth Strategy"]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://www.harshitmutha.digital/#website",
-        "url": "https://www.harshitmutha.digital",
-        "name": "Harshit Mutha — AI Ads Expert",
-        "description": "AI Ads Expert helping brands scale with ChatGPT Ads and performance marketing.",
-        "publisher": {
-          "@id": "https://www.harshitmutha.digital/#person"
+        "@type": "Question",
+        "name": "What is an AI Ads Expert?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An AI Ads Expert uses artificial intelligence tools like ChatGPT to create, optimize, and scale advertising campaigns on platforms like Meta, Google, and Instagram — delivering better results at lower cost."
         }
       },
       {
-        "@type": "WebPage",
-        "@id": "https://www.harshitmutha.digital/#webpage",
-        "url": "https://www.harshitmutha.digital",
-        "name": "Harshit Mutha — AI Ads Expert & ChatGPT Ads Specialist",
-        "isPartOf": { "@id": "https://www.harshitmutha.digital/#website" },
-        "about": { "@id": "https://www.harshitmutha.digital/#person" },
-        "description": "Harshit Mutha helps brands scale using AI-powered advertising, ChatGPT Ads, and performance marketing systems."
+        "@type": "Question",
+        "name": "What are ChatGPT Ads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ChatGPT Ads are advertising campaigns where AI tools like ChatGPT are used to generate high-converting ad copy, headlines, hooks, and creatives at scale — saving time and improving performance."
+        }
       },
       {
-        "@type": "Blog",
-        "@id": "https://www.harshitmutha.digital/#blog",
-        "url": "https://www.harshitmutha.digital/#blog",
-        "name": "AI Ads & Performance Marketing Insights",
-        "description": "Articles on AI Ads, ChatGPT Marketing, AI Automation, and Digital Growth by Harshit Mutha.",
-        "publisher": {
-          "@id": "https://www.harshitmutha.digital/#person"
+        "@type": "Question",
+        "name": "How can AI improve my advertising results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI can help you write better ad copy faster, generate hundreds of creative variations, analyze performance data, optimize targeting, and build full ad funnels — all at a fraction of the traditional cost."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What services does Harshit Mutha offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Harshit Mutha offers AI Ads strategy, ChatGPT Ads setup, Meta Ads management, Google Ads optimization, AI creative systems, performance funnel building, and AI-powered growth strategy for brands."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does it cost to work with an AI Ads Expert?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pricing depends on your goals and ad spend. Contact Harshit Mutha directly through the website to get a custom quote based on your brand's needs."
         }
       }
     ]

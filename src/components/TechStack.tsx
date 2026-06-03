@@ -11,18 +11,47 @@ import {
   RapierRigidBody,
 } from "@react-three/rapier";
 
-const textureLoader = new THREE.TextureLoader();
-const imageUrls = [
-  "/images/chatgpt.svg",
-  "/images/perplexity.svg",
-  "/images/meta-ads.svg",
-  "/images/facebook-ads.svg",
-  "/images/google-ads.svg",
-  "/images/chatgpt.svg",
-  "/images/meta-ads.svg",
-  "/images/google-ads.svg",
+// Generate canvas textures for each platform logo
+function makeTexture(bg: string, label: string, textColor = "#ffffff", emoji = "") {
+  const size = 256;
+  const canvas = document.createElement("canvas");
+  canvas.width = size; canvas.height = size;
+  const ctx = canvas.getContext("2d")!;
+
+  // Background
+  ctx.fillStyle = bg;
+  ctx.beginPath();
+  ctx.roundRect(0, 0, size, size, 48);
+  ctx.fill();
+
+  // Emoji / icon (large)
+  if (emoji) {
+    ctx.font = "96px serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(emoji, size / 2, size / 2 - 20);
+  }
+
+  // Label text
+  ctx.fillStyle = textColor;
+  ctx.font = `bold ${emoji ? 36 : 56}px Arial, sans-serif`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(label, size / 2, emoji ? size / 2 + 70 : size / 2);
+
+  return new THREE.CanvasTexture(canvas);
+}
+
+const textures = [
+  makeTexture("#10A37F", "ChatGPT", "#ffffff", "🤖"),
+  makeTexture("#1A1A2E", "Perplexity", "#20DDAA", "🔍"),
+  makeTexture("#0082FB", "Meta Ads", "#ffffff", "∞"),
+  makeTexture("#1877F2", "Facebook", "#ffffff", "f"),
+  makeTexture("#ffffff", "Google Ads", "#4285F4", "G"),
+  makeTexture("#10A37F", "ChatGPT", "#ffffff", "🤖"),
+  makeTexture("#0082FB", "Meta Ads", "#ffffff", "∞"),
+  makeTexture("#ffffff", "Google Ads", "#4285F4", "G"),
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 

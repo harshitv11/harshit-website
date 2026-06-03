@@ -7,251 +7,266 @@ import TrustSection from "../components/TrustSection";
 const ChatGPTAds = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showToast, setShowToast] = useState(false);
-
-  const r1 = useScrollReveal();
-  const r2 = useScrollReveal();
-  const r3 = useScrollReveal();
-  const r4 = useScrollReveal();
-  const r5 = useScrollReveal();
-  const r6 = useScrollReveal();
-  const r7 = useScrollReveal();
-  const r8 = useScrollReveal();
-  const rCards = useScrollReveal();
-  const rSteps = useScrollReveal();
-  const rResults = useScrollReveal();
-  const rStats = useScrollReveal();
+  const r1 = useScrollReveal(); const r2 = useScrollReveal();
+  const r3 = useScrollReveal(); const r4 = useScrollReveal();
+  const r5 = useScrollReveal(); const r6 = useScrollReveal();
+  const r7 = useScrollReveal(); const rCards = useScrollReveal();
+  const rSteps = useScrollReveal(); const rStats = useScrollReveal();
 
   useEffect(() => {
-    // Portfolio toast — show every 45 seconds
     const showIt = () => { setShowToast(true); setTimeout(() => setShowToast(false), 6000); };
     const toastTimer = setInterval(showIt, 45000);
-    setTimeout(showIt, 8000); // first show after 8s
-
-    // Unlock scroll — main site locks body overflow for GSAP smoother
+    setTimeout(showIt, 8000);
     document.body.style.overflow = "auto";
     document.body.style.height = "auto";
     window.scrollTo(0, 0);
-
     document.title = "ChatGPT Ads Expert — Run Ads on ChatGPT & AI Platforms | Harshit Mutha";
-    const setTag = (attr: string, val: string, content: string) => {
-      let el = document.querySelector(`meta[${attr}="${val}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.setAttribute(attr, val); document.head.appendChild(el); }
-      el.setAttribute("content", content);
+    const setTag = (a: string, v: string, c: string) => {
+      let el = document.querySelector(`meta[${a}="${v}"]`) as HTMLMetaElement;
+      if (!el) { el = document.createElement("meta"); el.setAttribute(a, v); document.head.appendChild(el); }
+      el.setAttribute("content", c);
     };
     setTag("name", "description", "Harshit Mutha runs paid ad campaigns on ChatGPT, Perplexity, and AI platforms for B2B brands in the US, UK, and Australia. Retainers from $1,000/month. Book a call.");
     setTag("property", "og:title", "ChatGPT Ads Expert — Run Ads on ChatGPT & AI Platforms | Harshit Mutha");
     setTag("property", "og:url", "https://www.harshitmutha.digital/chatgpt-ads");
-
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
     canonical.href = "https://www.harshitmutha.digital/chatgpt-ads";
-
-    const s1 = document.createElement("script");
-    s1.id = "schema-chatgpt-service";
-    s1.type = "application/ld+json";
-    s1.text = JSON.stringify({
-      "@context": "https://schema.org", "@type": "Service",
-      "name": "ChatGPT Ads Management",
-      "provider": { "@type": "Person", "name": "Harshit Mutha", "url": "https://www.harshitmutha.digital" },
-      "description": "ChatGPT Ads and AI platform advertising management for B2B brands in the US, UK, and Australia.",
-      "areaServed": ["US", "GB", "AU"],
-      "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "1000", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1000", "priceCurrency": "USD", "unitText": "MONTH" } },
-      "serviceType": "AI Platform Advertising"
-    });
-    document.head.appendChild(s1);
-
-    const s2 = document.createElement("script");
-    s2.id = "schema-chatgpt-faq";
-    s2.type = "application/ld+json";
-    s2.text = JSON.stringify({
-      "@context": "https://schema.org", "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "What platforms do you run ChatGPT Ads on?", "acceptedAnswer": { "@type": "Answer", "text": "Primarily ChatGPT (via OpenAI's ad platform) and Perplexity. As other AI platforms open up advertising inventory, I add those to the mix based on relevance to your audience." } },
-        { "@type": "Question", "name": "How is ChatGPT advertising different from Google or Meta Ads?", "acceptedAnswer": { "@type": "Answer", "text": "Google and Meta target users based on demographics, interests, and browsing behaviour. ChatGPT and Perplexity target users at the exact moment they ask a question your product answers. The intent is higher and the competition is lower." } },
-        { "@type": "Question", "name": "How much does ChatGPT Ads management cost?", "acceptedAnswer": { "@type": "Answer", "text": "Retainers start at $1,000/month and scale to $2,000/month depending on campaign complexity. Ad spend is separate and managed in your own ad account." } },
-        { "@type": "Question", "name": "Who is this ChatGPT Ads service for?", "acceptedAnswer": { "@type": "Answer", "text": "B2B business owners and personal brand operators in the US, UK, and Australia spending $2,000–$20,000/month on Meta or Google who want to reach a high-intent audience on AI platforms before the market gets crowded." } }
-      ]
-    });
-    document.head.appendChild(s2);
-
-    return () => {
-      clearInterval(toastTimer);
-      // Restore when leaving page
-      document.body.style.overflow = "hidden";
-      document.body.style.height = "";
-      document.getElementById("schema-chatgpt-service")?.remove();
-      document.getElementById("schema-chatgpt-faq")?.remove();
-    };
+    return () => { clearInterval(toastTimer); document.body.style.overflow = "hidden"; document.body.style.height = ""; };
   }, []);
 
   const faqs = [
-    { q: "What platforms do you run ads on?", a: "Primarily ChatGPT (via OpenAI's ad platform) and Perplexity. As other AI platforms open up advertising inventory, I add those to the mix based on relevance to your audience." },
-    { q: "How is this different from Google or Meta Ads?", a: "Google and Meta target users based on demographics, interests, and browsing behaviour. ChatGPT and Perplexity target users at the exact moment they ask a question your product answers. The intent is higher and the competition is lower — for now." },
-    { q: "Do I need to already be running paid ads?", a: "Not necessarily, but it helps if you have some data on what messaging converts for your offer. I can work with brands newer to paid ads, but you'll get more out of this if you have a tested offer." },
-    { q: "What results can I expect?", a: "I won't promise specific numbers before seeing your offer and audience. What I can tell you is that CPCs on AI platforms are currently well below Google and Meta equivalents, and conversion rates for high-intent queries are strong. We'll set clear benchmarks in the first 30 days." },
-    { q: "Where are you based and who do you work with?", a: "I'm based in India and work exclusively with clients in the US, UK, and Australia. All reporting, communication, and billing is in USD." },
-    { q: "How do I get started?", a: "Book a call below. We'll spend 30 minutes looking at your offer, current ad performance, and whether AI platform advertising is the right next move." },
+    { q: "What platforms do you run ads on?", a: "Primarily ChatGPT (via OpenAI's ad platform) and Perplexity. As other AI platforms open up advertising inventory, I add those to the mix based on what makes sense for your audience." },
+    { q: "How is this different from Google or Meta Ads?", a: "Google and Meta target based on who someone is. ChatGPT and Perplexity target based on what someone is actively asking — right now. That's a fundamentally different (and higher) level of intent." },
+    { q: "Do I need to already be running paid ads?", a: "Not necessarily. But you'll get more out of this if you already have a tested offer and some sense of what messaging converts. We can figure that out together on the call." },
+    { q: "What results can I expect?", a: "I won't throw fake numbers at you. CPCs are currently well below Google and Meta, and intent is high. We set clear benchmarks in the first 30 days and go from there." },
+    { q: "Where are you based and who do you work with?", a: "I'm based in India and work with clients in the US, UK, and Australia. All billing, reporting, and communication is in USD." },
+    { q: "How do I get started?", a: "Book a free 30-minute call. We'll look at your offer, current ads, and I'll tell you straight whether ChatGPT Ads make sense for you right now." },
   ];
 
   return (
     <div className="ca-wrap">
 
-      {/* Nav */}
+      {/* ── NAV ── */}
       <nav className="ca-nav">
         <Link to="/" className="ca-logo">HM</Link>
-        <Link to="/" className="ca-back">← Home</Link>
+        <div className="ca-nav-right">
+          <Link to="/" className="ca-nav-link">Portfolio</Link>
+          <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-nav-cta">Book a Free Call</a>
+        </div>
       </nav>
 
       {/* ── HERO ── */}
       <section className="ca-hero">
         <div className="ca-hero-inner">
-          <span className="ca-badge">ChatGPT Ads Expert</span>
-          <h1>ChatGPT Ads Expert<br />for B2B Brands</h1>
-          <p className="ca-subhead">Most brands are still fighting over the same Google and Meta inventory. I run ads where your competitors haven't shown up yet — ChatGPT, Perplexity, and AI-native platforms.</p>
+          <div className="ca-hero-tag">
+            <span className="ca-tag-dot"></span>
+            Available for new clients · India-based · Serving US, UK & AU
+          </div>
+          <h1>Your competitors aren't<br /><span className="ca-hero-accent">on ChatGPT yet.</span><br />You should be.</h1>
+          <p className="ca-subhead">I run paid ads on ChatGPT, Perplexity, and AI-native platforms — where your buyers are asking questions right now, and nobody's competing for their attention yet.</p>
 
-          {/* Portfolio link */}
-          <p className="ca-portfolio-link">
-            Want to see my full work and background?{" "}
-            <Link to="/">View Portfolio →</Link>
-          </p>
+          <div className="ca-hero-actions">
+            <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta">Book a FREE 30-Min Call →</a>
+            <p className="ca-no-lockin">No pitch deck. No pressure. Just an honest conversation.</p>
+          </div>
 
-          {/* Photo below subheadline */}
-          <div className="ca-hero-photo">
-            <div className="ca-avatar">
-              <div className="ca-avatar-fallback">HM</div>
-            </div>
+          <div className="ca-hero-card">
+            <div className="ca-avatar">HM</div>
             <div className="ca-hero-bio">
               <strong>Harshit Mutha</strong>
-              <span>AI Ads Expert · Based in India · Clients in US, UK & AU</span>
+              <span>AI Ads Expert · ChatGPT Ads Specialist</span>
+            </div>
+            <div className="ca-hero-badge-live">
+              <span className="ca-live-dot"></span> Taking new clients
+            </div>
+          </div>
+
+          <Link to="/" className="ca-portfolio-link">Want to see my full background? View Portfolio →</Link>
+        </div>
+      </section>
+
+      {/* ── TRUST ── */}
+      <TrustSection variant="dark" showClients={true} />
+
+      {/* ── WHY CHATGPT ADS ── */}
+      <section className="ca-section">
+        <div className="ca-container">
+          <div className="ca-section-tag">The Opportunity</div>
+          <h2 ref={r1} className="reveal">Honestly? Most brands are<br />leaving money on the table.</h2>
+          <p className="ca-lead-text">While everyone's fighting over the same crowded Google and Meta auctions — pushing CPCs up, returns down — there's an entirely new channel where buyers are typing in exactly what they need. And the ads? Almost nobody's there yet.</p>
+          <div ref={rCards} className="ca-cards stagger">
+            <div className="ca-card ca-card-accent">
+              <div className="ca-card-icon">🎯</div>
+              <h4>Intent you can't buy on Google</h4>
+              <p>When someone types "best B2B CRM for 50-person team" into ChatGPT — that's not a browse. That's a decision in progress.</p>
+            </div>
+            <div className="ca-card">
+              <div className="ca-card-icon">💸</div>
+              <h4>~70% lower CPCs right now</h4>
+              <p>The auction isn't competitive yet. The brands in now are paying a fraction of Google rates — for better-qualified clicks.</p>
+            </div>
+            <div className="ca-card">
+              <div className="ca-card-icon">⏳</div>
+              <h4>This window won't stay open</h4>
+              <p>More agencies will figure this out. The brands moving now will have data, campaigns, and positioning before it gets crowded.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust badges — below hero */}
-      <TrustSection variant="dark" showClients={true} />
-
-      {/* ── SECTION 1 — What Are ChatGPT Ads ── */}
-      <section className="ca-section">
-        <div className="ca-container">
-          <h2 ref={r1} className="reveal">What Are ChatGPT Ads?</h2>
-          <p>ChatGPT Ads are sponsored placements inside ChatGPT's interface — appearing when users ask questions relevant to your product or service. Unlike Google, where users are browsing, or Meta, where they're scrolling, ChatGPT users are in active problem-solving mode.</p>
-          <p>They've typed a specific question. They want a specific answer. That's a higher-intent audience than almost any other paid channel right now.</p>
-          <p>Perplexity Ads work the same way — your brand appears inside AI-generated answers to queries your customers are already searching for.</p>
-          <div ref={rCards} className="ca-cards stagger">
-            <div className="ca-card"><div className="ca-card-icon">🎯</div><h4>Higher Intent</h4><p>Users are actively solving a problem — not passively scrolling</p></div>
-            <div className="ca-card"><div className="ca-card-icon">💰</div><h4>Lower CPCs</h4><p>The auction isn't competitive yet — costs are a fraction of Google</p></div>
-            <div className="ca-card"><div className="ca-card-icon">🚀</div><h4>First-Mover Edge</h4><p>Be in the channel before your competitors even know it exists</p></div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 2 — Who I Work With ── */}
+      {/* ── COMPARISON TABLE ── */}
       <section className="ca-section ca-section-alt">
         <div className="ca-container">
-          <h2 ref={r2} className="reveal">Who I Work With</h2>
-          <p>I work with B2B business owners and personal brand operators in the US, UK, and Australia who:</p>
-          <ul className="ca-list">
-            <li>Are spending $2,000–$20,000/month on Meta or Google and seeing returns decline</li>
-            <li>Want to reach a high-intent audience before AI advertising gets crowded</li>
-            <li>Have a clear offer and need a new acquisition channel that actually converts</li>
-          </ul>
-          <p className="ca-note">This is not for brands still figuring out their positioning. If you have a working offer and want to test a channel with genuine first-mover advantage, that's who I'm built for.</p>
+          <div className="ca-section-tag">How It Stacks Up</div>
+          <h2 ref={r2} className="reveal">ChatGPT Ads vs the channels<br />you're already running</h2>
+          <div className="ca-compare">
+            <div className="ca-compare-table">
+              <div className="ca-compare-header">
+                <div></div>
+                <div className="ca-compare-col ca-compare-winner">ChatGPT Ads</div>
+                <div className="ca-compare-col">Google Ads</div>
+                <div className="ca-compare-col">Meta Ads</div>
+              </div>
+              {[
+                ["User intent", "🟢 Actively asking", "🟡 Searching", "🔴 Scrolling"],
+                ["Competition level", "🟢 Low (now)", "🔴 Very high", "🔴 Very high"],
+                ["Cost per click", "🟢 Low", "🔴 High", "🟡 Medium"],
+                ["Audience targeting", "🟢 Query-based", "🟡 Keyword", "🟡 Interest"],
+                ["First-mover advantage", "🟢 Yes — right now", "🔴 Gone", "🔴 Gone"],
+              ].map(([label, ai, google, meta]) => (
+                <div className="ca-compare-row" key={label}>
+                  <div className="ca-compare-label">{label}</div>
+                  <div className="ca-compare-col ca-compare-winner">{ai}</div>
+                  <div className="ca-compare-col">{google}</div>
+                  <div className="ca-compare-col">{meta}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ── SECTION 3 — What's Included ── */}
+      {/* ── WHO I WORK WITH ── */}
       <section className="ca-section">
         <div className="ca-container">
-          <h2 ref={r3} className="reveal">What the Service Includes</h2>
-          <div className="ca-services">
-            <div className="ca-service-item"><h4>Strategy</h4><p>Every campaign starts with an audit of your offer, audience, and current ad performance. I map the exact queries your buyers are asking on ChatGPT and Perplexity, then build a targeting strategy around those moments.</p></div>
-            <div className="ca-service-item"><h4>Creative</h4><p>AI platform ads require a different creative approach than Meta or Google. Copy needs to match the conversational context of the platform — I write and test ad copy built specifically for how people interact with AI answers.</p></div>
-            <div className="ca-service-item"><h4>Campaign Management</h4><p>I set up, launch, and manage your campaigns end-to-end. Weekly performance reviews, ongoing creative testing, and clear reporting — no black boxes.</p></div>
-            <div className="ca-service-item"><h4>Reporting</h4><p>You get a straightforward report each week: what ran, what converted, what we're testing next. No vanity metrics.</p></div>
+          <div className="ca-section-tag">Is This For You?</div>
+          <h2 ref={r3} className="reveal">I work best with brands who<br />already know their offer works.</h2>
+          <div className="ca-fit-grid">
+            <div className="ca-fit-card ca-fit-yes">
+              <div className="ca-fit-icon">✓</div>
+              <h4>Good fit</h4>
+              <ul>
+                <li>Spending $2K–$20K/month on Meta or Google</li>
+                <li>B2B with a clear, specific offer</li>
+                <li>Seeing returns decline on current channels</li>
+                <li>Ready to test a new acquisition channel</li>
+                <li>US, UK, or Australia based (or targeting those markets)</li>
+              </ul>
+            </div>
+            <div className="ca-fit-card ca-fit-no">
+              <div className="ca-fit-icon">✗</div>
+              <h4>Not the right fit</h4>
+              <ul>
+                <li>Still figuring out your positioning</li>
+                <li>Looking for quick-fix guaranteed results</li>
+                <li>Less than $500/month ad budget</li>
+                <li>No existing offer or product-market fit</li>
+              </ul>
+            </div>
           </div>
+        </div>
+      </section>
 
-          {/* CTA after What's Included */}
+      {/* ── WHAT'S INCLUDED ── */}
+      <section className="ca-section ca-section-alt">
+        <div className="ca-container">
+          <div className="ca-section-tag">The Service</div>
+          <h2 ref={r4} className="reveal">Everything from strategy to<br />weekly reporting — handled.</h2>
+          <div className="ca-services-grid">
+            <div className="ca-service-card">
+              <div className="ca-service-num">01</div>
+              <h4>Strategy & Audience Mapping</h4>
+              <p>I audit your offer, your competitors, and map the exact queries your buyers are typing into ChatGPT and Perplexity. No guessing — we target real demand.</p>
+            </div>
+            <div className="ca-service-card">
+              <div className="ca-service-num">02</div>
+              <h4>AI-Native Creative</h4>
+              <p>ChatGPT ads need to sound like the platform — conversational, helpful, contextual. I write copy specifically built for how people interact with AI answers.</p>
+            </div>
+            <div className="ca-service-card">
+              <div className="ca-service-num">03</div>
+              <h4>Campaign Management</h4>
+              <p>Full end-to-end setup and management. I run your campaigns, test creatives, optimise bids, and handle everything technical — so you don't have to.</p>
+            </div>
+            <div className="ca-service-card">
+              <div className="ca-service-num">04</div>
+              <h4>Weekly Reporting</h4>
+              <p>Every week: what ran, what converted, what we're changing next. No dashboards full of vanity metrics. Just clear numbers and next steps.</p>
+            </div>
+          </div>
           <div className="ca-cta-block">
-            <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta">Book a Call →</a>
+            <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta">Book a FREE Call →</a>
             <p className="ca-no-lockin">No lock-in. Cancel anytime.</p>
           </div>
         </div>
       </section>
 
       {/* ── HOW IT WORKS ── */}
-      <section className="ca-section ca-section-alt">
-        <div className="ca-container">
-          <h2 ref={r4} className="reveal">How It Works</h2>
-          <div ref={rSteps} className="ca-steps stagger">
-            <div className="ca-step">
-              <div className="ca-step-num">01</div>
-              <div className="ca-step-content">
-                <h4>Discovery Call</h4>
-                <p>30 minutes. We look at your offer, current ad performance, and target audience. I'll tell you honestly whether ChatGPT Ads are the right move right now — and what to expect.</p>
-              </div>
-            </div>
-            <div className="ca-step-arrow">→</div>
-            <div className="ca-step">
-              <div className="ca-step-num">02</div>
-              <div className="ca-step-content">
-                <h4>Strategy & Setup</h4>
-                <p>I build your targeting strategy, write the first batch of ad creative, set up your campaigns, and get everything ready to go live. This typically takes 5–7 days.</p>
-              </div>
-            </div>
-            <div className="ca-step-arrow">→</div>
-            <div className="ca-step">
-              <div className="ca-step-num">03</div>
-              <div className="ca-step-content">
-                <h4>Launch & Weekly Reporting</h4>
-                <p>Campaigns go live. You get a clear weekly report: what ran, what converted, what we're testing next. Ongoing optimisation every week — no set-and-forget.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── BY THE NUMBERS ── */}
       <section className="ca-section">
         <div className="ca-container">
-          <h2 ref={r5} className="reveal">By The Numbers</h2>
-          <p className="ca-section-sub">Results from campaigns run on AI platforms. <em>(Real numbers — updated as campaigns complete.)</em></p>
-          <div ref={rResults} className="ca-results stagger">
-            <div className="ca-result-card">
-              <h3>—</h3>
-              <p>Average CPC reduction vs Google</p>
-              <span>Placeholder — updating soon</span>
+          <div className="ca-section-tag">The Process</div>
+          <h2 ref={r5} className="reveal">From first call to live<br />campaigns in under 2 weeks.</h2>
+          <div ref={rSteps} className="ca-steps-new stagger">
+            <div className="ca-step-new">
+              <div className="ca-step-circle">01</div>
+              <div className="ca-step-line"></div>
+              <h4>Discovery Call <span>30 min</span></h4>
+              <p>We look at your offer, your current ads, and your goals. I'll tell you honestly whether ChatGPT Ads are the right move — and what to realistically expect.</p>
             </div>
-            <div className="ca-result-card">
-              <h3>—</h3>
-              <p>Qualified leads generated</p>
-              <span>Placeholder — updating soon</span>
+            <div className="ca-step-new">
+              <div className="ca-step-circle">02</div>
+              <div className="ca-step-line"></div>
+              <h4>Strategy & Setup <span>5–7 days</span></h4>
+              <p>Audience mapping, ad copy, campaign setup. Everything built to match the conversational context of AI platforms — not just adapted from Google.</p>
             </div>
-            <div className="ca-result-card">
-              <h3>—</h3>
-              <p>Months average client retention</p>
-              <span>Placeholder — updating soon</span>
-            </div>
-            <div className="ca-result-card">
-              <h3>$1K–$2K</h3>
-              <p>Monthly retainer range</p>
-              <span>No lock-in on first engagement</span>
+            <div className="ca-step-new">
+              <div className="ca-step-circle ca-step-last">03</div>
+              <div className="ca-step-line ca-step-line-hidden"></div>
+              <h4>Launch & Optimise <span>Ongoing</span></h4>
+              <p>Go live. Weekly reports. Ongoing creative testing and bid optimisation. You always know exactly what's working and what we're testing next.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── WHY NOW ── */}
-      <section className="ca-section ca-section-alt">
+      {/* ── STATS ── */}
+      <section className="ca-section ca-section-dark">
         <div className="ca-container">
-          <h2 ref={r6} className="reveal">Why ChatGPT Ads in 2025</h2>
-          <p>AI search is growing faster than any channel since mobile. ChatGPT hit 100 million weekly active users in 2023 — that number has continued climbing. Perplexity is processing hundreds of millions of queries per month.</p>
-          <p>The brands advertising there today are paying a fraction of what Google and Meta cost per click, because the auction is not yet competitive.</p>
-          <p>That window closes as more agencies figure this out. The brands that move now will have performance data, optimised campaigns, and category positioning before the market gets crowded.</p>
-          <div ref={rStats} className="ca-stats stagger">
-            <div className="ca-stat"><h3>100M+</h3><p>ChatGPT weekly active users</p></div>
-            <div className="ca-stat"><h3>~70%</h3><p>Lower CPCs vs Google on average</p></div>
-            <div className="ca-stat"><h3>2025</h3><p>The window is open — for now</p></div>
+          <div ref={rStats} className="ca-stats-new stagger">
+            <div className="ca-stat-new">
+              <h3>100M+</h3>
+              <p>ChatGPT weekly active users</p>
+              <span>and growing every month</span>
+            </div>
+            <div className="ca-stat-divider"></div>
+            <div className="ca-stat-new">
+              <h3>~70%</h3>
+              <p>Lower CPCs vs Google</p>
+              <span>on AI platform campaigns</span>
+            </div>
+            <div className="ca-stat-divider"></div>
+            <div className="ca-stat-new">
+              <h3>2025</h3>
+              <p>The window is open</p>
+              <span>but it won't stay that way</span>
+            </div>
+            <div className="ca-stat-divider"></div>
+            <div className="ca-stat-new">
+              <h3>$1K</h3>
+              <p>Starting retainer</p>
+              <span>No lock-in on first month</span>
+            </div>
           </div>
         </div>
       </section>
@@ -259,18 +274,28 @@ const ChatGPTAds = () => {
       {/* ── PRICING ── */}
       <section className="ca-section">
         <div className="ca-container">
-          <h2 ref={r7} className="reveal">Pricing</h2>
-          <div ref={r8} className="ca-pricing reveal">
-            <div className="ca-price-card">
-              <h3>From <span>$1,000</span><small>/month</small></h3>
-              <p>Retainers start at $1,000/month and scale to $2,000/month depending on campaign complexity and platforms covered.</p>
-              <ul className="ca-list">
-                <li>No long-term lock-in on the first engagement</li>
-                <li>Ad spend is separate — managed in your own account</li>
-                <li>I'd rather earn the retainer than lock you in</li>
+          <div className="ca-section-tag">Transparent Pricing</div>
+          <h2 ref={r6} className="reveal">Simple. No surprises.</h2>
+          <div className="ca-pricing-new">
+            <div className="ca-price-new">
+              <div className="ca-price-top">
+                <div>
+                  <p className="ca-price-label">Monthly Retainer</p>
+                  <h3>$1,000 <span>— $2,000</span></h3>
+                  <p className="ca-price-sub">Depending on campaign complexity and number of platforms</p>
+                </div>
+                <div className="ca-price-tag">Most popular</div>
+              </div>
+              <ul className="ca-price-list">
+                <li>✓ Full campaign strategy & setup</li>
+                <li>✓ AI-native ad creative writing & testing</li>
+                <li>✓ ChatGPT + Perplexity campaign management</li>
+                <li>✓ Weekly performance report</li>
+                <li>✓ Ad spend in your own account — full transparency</li>
+                <li>✓ No lock-in contract on first engagement</li>
               </ul>
-              <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta">Book a Call →</a>
-              <p className="ca-no-lockin">No lock-in. Cancel anytime.</p>
+              <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta ca-cta-full">Book a FREE 30-Min Call →</a>
+              <p className="ca-no-lockin">Cancel anytime. I'd rather earn the retainer.</p>
             </div>
           </div>
         </div>
@@ -279,15 +304,16 @@ const ChatGPTAds = () => {
       {/* ── FAQ ── */}
       <section className="ca-section ca-section-alt">
         <div className="ca-container">
-          <h2>Frequently Asked Questions</h2>
-          <div className="ca-faq">
+          <div className="ca-section-tag">Questions</div>
+          <h2 ref={r7} className="reveal">Things people usually ask<br />before booking a call</h2>
+          <div className="ca-faq-new">
             {faqs.map((faq, i) => (
-              <div key={i} className={`ca-faq-item ${openFaq === i ? "open" : ""}`}>
-                <button className="ca-faq-q" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-                  {faq.q}
-                  <span>{openFaq === i ? "−" : "+"}</span>
-                </button>
-                {openFaq === i && <p className="ca-faq-a">{faq.a}</p>}
+              <div key={i} className={`ca-faq-item-new ${openFaq === i ? "open" : ""}`} onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                <div className="ca-faq-q-new">
+                  <span>{faq.q}</span>
+                  <div className="ca-faq-icon">{openFaq === i ? "−" : "+"}</div>
+                </div>
+                {openFaq === i && <p className="ca-faq-a-new">{faq.a}</p>}
               </div>
             ))}
           </div>
@@ -295,17 +321,19 @@ const ChatGPTAds = () => {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section className="ca-section ca-cta-section">
-        <div className="ca-container ca-cta-inner">
-          <h2>Book a Call</h2>
-          <p>30 minutes. We look at your current setup, your offer, and whether ChatGPT Ads make sense for your business right now.</p>
-          <p className="ca-note">No pitch deck. No sales pressure. If it's not the right fit, I'll tell you.</p>
-          <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta ca-cta-lg">Book a Call →</a>
-          <p className="ca-no-lockin">No lock-in. Cancel anytime.</p>
+      <section className="ca-cta-final">
+        <div className="ca-container">
+          <div className="ca-cta-final-inner">
+            <div className="ca-avatar ca-avatar-lg">HM</div>
+            <h2>Let's talk about your brand.</h2>
+            <p>30 minutes. I'll look at what you're running now, what's not working, and tell you honestly whether ChatGPT Ads are the right next move. No decks. No sales pitch.</p>
+            <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta ca-cta-lg">Book a FREE 30-Min Call →</a>
+            <p className="ca-no-lockin">No lock-in. Cancel anytime. Billing in USD.</p>
+          </div>
         </div>
       </section>
 
-      {/* Portfolio Toast */}
+      {/* Toast */}
       <div className={`ca-toast ${showToast ? "ca-toast-show" : ""}`}>
         <div className="ca-toast-inner">
           <div className="ca-toast-avatar">HM</div>
@@ -313,17 +341,14 @@ const ChatGPTAds = () => {
             <strong>Harshit Mutha</strong>
             <span>Want to see my full portfolio?</span>
           </div>
-          <Link to="/" className="ca-toast-btn" onClick={() => setShowToast(false)}>
-            Visit Portfolio →
-          </Link>
+          <Link to="/" className="ca-toast-btn" onClick={() => setShowToast(false)}>Visit →</Link>
           <button className="ca-toast-close" onClick={() => setShowToast(false)}>✕</button>
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="ca-footer">
-        <Link to="/">← Back to harshitmutha.digital</Link>
-        <p>© 2026 Harshit Mutha</p>
+        <Link to="/">← harshitmutha.digital</Link>
+        <p>© 2026 Harshit Mutha · AI Ads Expert</p>
       </footer>
 
     </div>

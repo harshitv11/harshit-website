@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./ChatGPTAds.css";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import TrustSection from "../components/TrustSection";
+import BookingModal from "../components/BookingModal";
 
 const ChatGPTAds = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -345,6 +346,8 @@ const ChatGPTAds = () => {
           <button className="ca-toast-close" onClick={() => setShowToast(false)}>✕</button>
         </div>
       </div>
+
+      <BookingModal delay={12} />
 
       <footer className="ca-footer">
         <Link to="/">← harshitmutha.digital</Link>

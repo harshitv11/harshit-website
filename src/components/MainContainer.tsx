@@ -1,5 +1,6 @@
 import { lazy, PropsWithChildren, Suspense, useEffect, useState } from "react";
 import About from "./About";
+import BookingModal from "./BookingModal";
 import TrustSection from "./TrustSection";
 import Career from "./Career";
 import Contact from "./Contact";
@@ -32,6 +33,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="container-main">
+      <BookingModal delay={20} />
       <Cursor />
       <Navbar />
       <SocialIcons />

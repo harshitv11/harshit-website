@@ -1,11 +1,11 @@
 import "./styles/TrustSection.css";
 
 const reviewPlatforms = [
-  { name: "Google", rating: "5.0", stars: 5, color: "#4285F4" },
-  { name: "Clutch", rating: "5.0", stars: 5, color: "#FF3D2E" },
-  { name: "Trustpilot", rating: "4.9", stars: 5, color: "#00B67A" },
-  { name: "G2", rating: "4.8", stars: 5, color: "#FF492C" },
-  { name: "GoodFirms", rating: "5.0", stars: 5, color: "#1A73E8" },
+  { name: "Google", rating: "5.0", color: "#4285F4", bg: "#EBF2FF" },
+  { name: "Clutch", rating: "5.0", color: "#FF3D2E", bg: "#FFF0EF" },
+  { name: "Trustpilot", rating: "4.9", color: "#00B67A", bg: "#EDFAF4" },
+  { name: "G2", rating: "4.8", color: "#FF492C", bg: "#FFF1EF" },
+  { name: "GoodFirms", rating: "5.0", color: "#1A73E8", bg: "#EBF3FF" },
 ];
 
 const clients = [
@@ -18,49 +18,62 @@ interface TrustSectionProps {
   showClients?: boolean;
 }
 
-const Stars = ({ count }: { count: number }) => (
-  <div className="trust-stars">
-    {[...Array(count)].map((_, i) => (
-      <span key={i}>★</span>
-    ))}
-  </div>
+const Stars = () => (
+  <div className="ts-stars">★★★★★</div>
 );
 
 const TrustSection = ({ variant = "light", showClients = true }: TrustSectionProps) => {
-  return (
-    <div className={`trust-wrap trust-${variant}`}>
+  const isDark = variant === "dark";
 
-      {/* Review Platforms */}
-      <div className="trust-container">
-        <p className="trust-label">Reviewed by Verified Experts</p>
-        <div className="trust-badges">
+  return (
+    <section className={`ts-wrap ${isDark ? "ts-dark" : "ts-light"}`}>
+
+      {/* Top label */}
+      <div className="ts-inner">
+        <p className="ts-heading-label">
+          {isDark ? "⭐ Reviewed & Trusted by Verified Experts" : "⭐ Reviewed & Trusted by Verified Experts"}
+        </p>
+
+        {/* Review platform badges */}
+        <div className="ts-badges">
           {reviewPlatforms.map((p) => (
-            <div className="trust-badge" key={p.name}>
-              <span className="trust-badge-name" style={{ color: variant === "dark" ? "#fff" : p.color }}>
+            <div
+              className="ts-badge"
+              key={p.name}
+              style={isDark ? {} : { background: p.bg, borderColor: p.bg }}
+            >
+              <span className="ts-badge-name" style={{ color: isDark ? "#fff" : p.color }}>
                 {p.name}
               </span>
-              <Stars count={p.stars} />
-              <span className="trust-badge-rating">{p.rating}</span>
+              <Stars />
+              <span className="ts-badge-rating" style={{ color: isDark ? "rgba(255,255,255,0.6)" : "#334155" }}>
+                {p.rating} / 5.0
+              </span>
             </div>
           ))}
         </div>
+
+        {/* Divider */}
+        {showClients && (
+          <>
+            <div className="ts-divider" />
+            <p className="ts-heading-label">Trusted by brands across India, US &amp; UK</p>
+
+            {/* Client logo ticker */}
+            <div className="ts-ticker-wrap">
+              <div className="ts-ticker">
+                {[...clients, ...clients].map((name, i) => (
+                  <div className="ts-client" key={i}>
+                    <span>{name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
-      {/* Client Logos */}
-      {showClients && (
-        <div className="trust-clients-wrap">
-          <p className="trust-label">Trusted by brands across India, US & UK</p>
-          <div className="trust-clients">
-            {clients.map((name) => (
-              <div className="trust-client-logo" key={name}>
-                <span>{name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-    </div>
+    </section>
   );
 };
 

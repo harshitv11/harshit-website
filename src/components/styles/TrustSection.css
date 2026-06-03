@@ -1,172 +1,188 @@
-/* ── Trust Section ── */
-.trust-wrap {
+/* ══════════════════════════════
+   Trust Section — Premium Design
+══════════════════════════════ */
+
+.ts-wrap {
   width: 100%;
-  padding: 60px 0 40px;
+  padding: 56px 0 48px;
+  position: relative;
+  z-index: 2;
 }
 
-.trust-wrap.trust-light {
+/* Light variant — homepage */
+.ts-light {
   background: #ffffff;
   border-top: 1px solid #E2E8F0;
   border-bottom: 1px solid #E2E8F0;
 }
 
-.trust-wrap.trust-dark {
-  background: rgba(255, 255, 255, 0.04);
+/* Dark variant — chatgpt-ads hero */
+.ts-dark {
+  background: #0F172A;
   border-top: 1px solid rgba(255,255,255,0.08);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.trust-container {
-  width: 90%;
+.ts-inner {
+  width: 92%;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.trust-label {
+/* Label */
+.ts-heading-label {
   text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: #94A3B8;
   margin: 0 0 28px;
+  color: #94A3B8;
 }
 
-.trust-wrap.trust-dark .trust-label {
-  color: rgba(255,255,255,0.4);
+.ts-dark .ts-heading-label {
+  color: rgba(255,255,255,0.35);
 }
 
 /* ── Review Badges ── */
-.trust-badges {
+.ts-badges {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 0;
+  gap: 14px;
 }
 
-.trust-badge {
+.ts-badge {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  border-radius: 14px;
-  padding: 20px 28px;
-  min-width: 130px;
-  transition: all 0.2s;
+  gap: 8px;
+  border-radius: 16px;
+  padding: 22px 30px;
+  min-width: 140px;
+  border: 1.5px solid transparent;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: default;
 }
 
-.trust-wrap.trust-dark .trust-badge {
-  background: rgba(255,255,255,0.05);
+/* Dark badge style */
+.ts-dark .ts-badge {
+  background: rgba(255,255,255,0.06);
   border-color: rgba(255,255,255,0.1);
 }
 
-.trust-badge:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(99,102,241,0.12);
-  border-color: #C7D2FE;
+.ts-badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(99,102,241,0.15);
 }
 
-.trust-wrap.trust-dark .trust-badge:hover {
-  box-shadow: 0 8px 24px rgba(99,102,241,0.2);
+.ts-dark .ts-badge:hover {
+  background: rgba(255,255,255,0.1);
   border-color: rgba(99,102,241,0.4);
+  box-shadow: 0 12px 32px rgba(99,102,241,0.25);
 }
 
-.trust-badge-name {
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: -0.3px;
+.ts-badge-name {
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
 }
 
-.trust-stars {
-  display: flex;
-  gap: 2px;
+.ts-stars {
   color: #FBBF24;
-  font-size: 14px;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
-.trust-badge-rating {
+.ts-badge-rating {
   font-size: 12px;
   font-weight: 600;
-  color: #64748B;
+  letter-spacing: 0.3px;
 }
 
-.trust-wrap.trust-dark .trust-badge-rating {
-  color: rgba(255,255,255,0.4);
+/* ── Divider ── */
+.ts-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #6366F1, #38BDF8);
+  border-radius: 2px;
+  margin: 44px auto 36px;
 }
 
-/* ── Client Logos ── */
-.trust-clients-wrap {
-  width: 90%;
-  max-width: 1100px;
-  margin: 48px auto 0;
+/* ── Client Ticker (auto-scroll) ── */
+.ts-ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
-.trust-clients {
+.ts-ticker {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
+  gap: 14px;
+  width: max-content;
+  animation: tsTicker 20s linear infinite;
 }
 
-.trust-client-logo {
+.ts-ticker-wrap:hover .ts-ticker {
+  animation-play-state: paused;
+}
+
+@keyframes tsTicker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ts-client {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 24px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: 1.5px solid #E2E8F0;
   background: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  min-width: 140px;
+  white-space: nowrap;
   transition: all 0.2s;
 }
 
-.trust-wrap.trust-dark .trust-client-logo {
+.ts-dark .ts-client {
   background: rgba(255,255,255,0.05);
   border-color: rgba(255,255,255,0.1);
 }
 
-.trust-client-logo:hover {
+.ts-client:hover {
   border-color: #6366F1;
-  box-shadow: 0 4px 16px rgba(99,102,241,0.1);
+  background: #EEF2FF;
   transform: translateY(-2px);
 }
 
-.trust-wrap.trust-dark .trust-client-logo:hover {
+.ts-dark .ts-client:hover {
   border-color: rgba(99,102,241,0.5);
+  background: rgba(99,102,241,0.12);
 }
 
-.trust-client-logo span {
+.ts-client span {
   font-size: 13px;
   font-weight: 700;
-  color: #334155;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
+  color: #334155;
 }
 
-.trust-wrap.trust-dark .trust-client-logo span {
-  color: rgba(255,255,255,0.7);
+.ts-dark .ts-client span {
+  color: rgba(255,255,255,0.75);
 }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .trust-badges {
-    gap: 10px;
-  }
-  .trust-badge {
-    min-width: 100px;
-    padding: 14px 18px;
-  }
-  .trust-badge-name {
-    font-size: 13px;
-  }
-  .trust-client-logo {
-    min-width: 110px;
-    padding: 10px 16px;
-  }
-  .trust-wrap {
-    padding: 40px 0 28px;
-  }
+  .ts-wrap { padding: 40px 0 36px; }
+  .ts-badge { min-width: 110px; padding: 16px 18px; }
+  .ts-badge-name { font-size: 14px; }
+  .ts-badges { gap: 10px; }
+}
+
+@media (max-width: 480px) {
+  .ts-badge { min-width: 90px; padding: 14px 14px; }
+  .ts-badge-name { font-size: 13px; }
+  .ts-stars { font-size: 13px; }
 }

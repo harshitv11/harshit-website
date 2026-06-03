@@ -40,13 +40,13 @@ const TrustSection = ({ variant = "light", showClients = true }: TrustSectionPro
             <div
               className="ts-badge"
               key={p.name}
-              style={isDark ? {} : { background: p.bg, borderColor: p.bg }}
+              style={{ background: isDark ? "rgba(255,255,255,0.1)" : p.bg, borderColor: isDark ? "rgba(255,255,255,0.2)" : p.bg }}
             >
-              <span className="ts-badge-name" style={{ color: isDark ? "#fff" : p.color }}>
+              <span className="ts-badge-name" style={{ color: p.color }}>
                 {p.name}
               </span>
               <Stars />
-              <span className="ts-badge-rating" style={{ color: isDark ? "rgba(255,255,255,0.6)" : "#334155" }}>
+              <span className="ts-badge-rating" style={{ color: isDark ? "rgba(255,255,255,0.8)" : "#334155" }}>
                 {p.rating} / 5.0
               </span>
             </div>
@@ -63,8 +63,8 @@ const TrustSection = ({ variant = "light", showClients = true }: TrustSectionPro
             <div className="ts-ticker-wrap">
               <div className="ts-ticker">
                 {[...clients, ...clients].map((name, i) => (
-                  <div className="ts-client" key={i}>
-                    <span>{name}</span>
+                  <div className="ts-client" key={i} style={isDark ? { background: "rgba(255,255,255,0.08)", borderColor: "rgba(255,255,255,0.2)" } : {}}>
+                    <span style={{ color: isDark ? "#ffffff" : "#334155" }}>{name}</span>
                   </div>
                 ))}
               </div>

@@ -347,7 +347,7 @@ const ChatGPTAds = () => {
         </div>
       </div>
 
-      <BookingModal delay={5} />
+      <BookingModal delay={30} />
 
       <footer className="ca-footer">
         <Link to="/">← harshitmutha.digital</Link>

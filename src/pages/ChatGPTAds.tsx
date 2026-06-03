@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./ChatGPTAds.css";
 import { useScrollReveal } from "../hooks/useScrollReveal";
+import TrustSection from "../components/TrustSection";
 
 const ChatGPTAds = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -126,6 +127,9 @@ const ChatGPTAds = () => {
           </div>
         </div>
       </section>
+
+      {/* Trust badges — below hero */}
+      <TrustSection variant="dark" showClients={true} />
 
       {/* ── SECTION 1 — What Are ChatGPT Ads ── */}
       <section className="ca-section">

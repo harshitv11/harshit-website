@@ -1,13 +1,12 @@
 /* ══════════════════════
-   Booking Modal
+   Booking Modal — Small & Trustworthy
 ══════════════════════ */
 
-/* Overlay */
 .bm-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(6px);
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
   z-index: 999999;
   display: flex;
   align-items: center;
@@ -15,175 +14,116 @@
   padding: 20px;
   animation: bmFadeIn 0.3s ease;
 }
+@keyframes bmFadeIn { from{opacity:0} to{opacity:1} }
 
-@keyframes bmFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* Modal box */
 .bm-modal {
   background: #ffffff;
-  border-radius: 24px;
-  padding: 48px 44px 36px;
-  max-width: 480px;
+  border-radius: 20px;
+  padding: 32px 30px 24px;
+  max-width: 380px;
   width: 100%;
   text-align: center;
   position: relative;
-  box-shadow: 0 32px 80px rgba(99, 102, 241, 0.25);
+  box-shadow: 0 24px 64px rgba(99,102,241,0.22), 0 0 0 1px rgba(99,102,241,0.1);
   animation: bmSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-
 @keyframes bmSlideUp {
-  from { opacity: 0; transform: translateY(40px) scale(0.96); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+  from{opacity:0;transform:translateY(32px) scale(0.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
 }
 
-/* Close button */
 .bm-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  background: #F1F5F9;
-  border: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  font-size: 14px;
-  color: #64748B;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: 12px; right: 12px;
+  background: #F1F5F9; border: none;
+  width: 28px; height: 28px;
+  border-radius: 50%; font-size: 12px; color: #64748B;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
   transition: all 0.2s;
 }
 .bm-close:hover { background: #E2E8F0; color: #0F172A; }
 
-/* Badge */
-.bm-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #FFF7ED;
-  border: 1px solid #FED7AA;
-  border-radius: 50px;
-  padding: 6px 14px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #C2410C;
-  letter-spacing: 0.3px;
-  margin-bottom: 24px;
-}
-.bm-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #F97316;
-  animation: bmPulse 2s ease infinite;
-}
-@keyframes bmPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-
-/* Avatar */
-.bm-avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #6366F1, #38BDF8);
-  color: #fff;
-  font-size: 20px;
-  font-weight: 900;
+/* Top row */
+.bm-top {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+  gap: 10px;
+  margin-bottom: 18px;
 }
 
-/* Heading */
+.bm-avatar-sm {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, #6366F1, #38BDF8);
+  color: #fff; font-size: 13px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+  flex-shrink: 0;
+}
+
+.bm-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #F0FDF4; border: 1px solid #BBF7D0;
+  border-radius: 50px; padding: 5px 12px;
+  font-size: 11px; font-weight: 700; color: #15803D;
+}
+.bm-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #22C55E;
+  animation: bmPulse 2s ease infinite;
+}
+@keyframes bmPulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* Copy */
 .bm-modal h2 {
-  font-size: 26px;
-  font-weight: 900;
-  color: #0F172A;
-  line-height: 1.2;
-  margin: 0 0 14px;
+  font-size: 22px; font-weight: 900; color: #0F172A;
+  line-height: 1.2; margin: 0 0 10px;
+  font-family: "Geist", sans-serif;
 }
-
 .bm-modal p {
-  font-size: 15px;
-  color: #334155;
-  line-height: 1.7;
-  margin: 0 0 24px;
+  font-size: 14px; color: #334155; line-height: 1.65;
+  margin: 0 0 18px; font-family: "Geist", sans-serif;
 }
 
-/* Bullets */
-.bm-bullets {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 28px;
-  text-align: left;
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  padding: 16px 20px;
+/* Trust row */
+.bm-trust-row {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
-.bm-bullets li {
-  font-size: 14px;
-  color: #334155;
-  font-weight: 500;
+.bm-trust-row span {
+  font-size: 12px; font-weight: 600; color: #16A34A;
+  background: #F0FDF4; border: 1px solid #BBF7D0;
+  padding: 4px 10px; border-radius: 50px;
 }
 
 /* CTA */
 .bm-cta {
-  display: block;
-  width: 100%;
-  padding: 16px;
+  display: block; width: 100%; padding: 14px;
   background: linear-gradient(135deg, #6366F1, #38BDF8);
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 14px;
-  font-size: 16px;
-  font-weight: 800;
-  text-align: center;
-  transition: all 0.2s;
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+  color: #ffffff; text-decoration: none;
+  border-radius: 12px; font-size: 15px; font-weight: 800;
+  text-align: center; transition: all 0.2s;
+  box-shadow: 0 6px 20px rgba(99,102,241,0.3);
+  font-family: "Geist", sans-serif;
 }
-.bm-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.4);
-  color: #fff;
-}
+.bm-cta:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(99,102,241,.4); color:#fff; }
 
 .bm-no-lockin {
-  font-size: 12px !important;
-  color: #94A3B8 !important;
-  margin: 10px 0 0 !important;
+  font-size: 11px !important; color: #94A3B8 !important;
+  margin: 8px 0 0 !important; font-family: "Geist", sans-serif;
 }
 
-/* Skip */
 .bm-skip {
-  background: none;
-  border: none;
-  font-size: 13px;
-  color: #94A3B8;
-  cursor: pointer;
-  margin-top: 16px;
-  padding: 4px;
-  font-family: "Geist", sans-serif;
-  transition: color 0.2s;
+  background: none; border: none;
+  font-size: 12px; color: #94A3B8; cursor: pointer;
+  margin-top: 12px; padding: 4px;
+  font-family: "Geist", sans-serif; transition: color 0.2s;
 }
 .bm-skip:hover { color: #334155; }
 
-/* Mobile */
-@media (max-width: 480px) {
-  .bm-modal {
-    padding: 36px 24px 28px;
-    border-radius: 20px;
-  }
-  .bm-modal h2 { font-size: 22px; }
+@media (max-width: 420px) {
+  .bm-modal { padding: 28px 22px 20px; }
+  .bm-modal h2 { font-size: 20px; }
 }

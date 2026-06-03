@@ -33,7 +33,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
 
   return (
     <div className="container-main">
-      <BookingModal delay={20} />
+      <BookingModal delay={60} />
       <Cursor />
       <Navbar />
       <SocialIcons />

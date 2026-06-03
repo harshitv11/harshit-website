@@ -6,21 +6,21 @@
   width: 100%;
   padding: 56px 0 48px;
   position: relative;
-  z-index: 2;
+  z-index: 20;
 }
 
 /* Light variant — homepage */
 .ts-light {
-  background: #ffffff;
-  border-top: 1px solid #E2E8F0;
-  border-bottom: 1px solid #E2E8F0;
+  background: linear-gradient(135deg, #EEF2FF 0%, #E0F2FE 50%, #F0FDF4 100%);
+  border-top: 2px solid #C7D2FE;
+  border-bottom: 2px solid #C7D2FE;
 }
 
-/* Dark variant — chatgpt-ads hero */
+/* Dark variant — chatgpt-ads */
 .ts-dark {
-  background: #0F172A;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(135deg, #1E1B4B 0%, #172554 100%);
+  border-top: 1px solid rgba(99,102,241,0.3);
+  border-bottom: 1px solid rgba(99,102,241,0.3);
 }
 
 .ts-inner {
@@ -37,11 +37,11 @@
   letter-spacing: 2.5px;
   text-transform: uppercase;
   margin: 0 0 28px;
-  color: #94A3B8;
+  color: #6366F1;
 }
 
 .ts-dark .ts-heading-label {
-  color: rgba(255,255,255,0.35);
+  color: rgba(165,180,252,0.8);
 }
 
 /* ── Review Badges ── */
@@ -60,26 +60,28 @@
   border-radius: 16px;
   padding: 22px 30px;
   min-width: 140px;
-  border: 1.5px solid transparent;
+  border: 2px solid transparent;
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: default;
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(99,102,241,0.08);
 }
 
-/* Dark badge style */
 .ts-dark .ts-badge {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: none;
 }
 
 .ts-badge:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(99,102,241,0.15);
+  box-shadow: 0 12px 32px rgba(99,102,241,0.2);
 }
 
 .ts-dark .ts-badge:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(99,102,241,0.4);
-  box-shadow: 0 12px 32px rgba(99,102,241,0.25);
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(99,102,241,0.5);
+  box-shadow: 0 12px 32px rgba(99,102,241,0.3);
 }
 
 .ts-badge-name {
@@ -88,22 +90,30 @@
   letter-spacing: -0.5px;
 }
 
+.ts-dark .ts-badge-name {
+  color: #ffffff !important;
+}
+
 .ts-stars {
   color: #FBBF24;
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 2px;
 }
 
 .ts-badge-rating {
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.ts-dark .ts-badge-rating {
+  color: rgba(255,255,255,0.6) !important;
 }
 
 /* ── Divider ── */
 .ts-divider {
   width: 60px;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(90deg, #6366F1, #38BDF8);
   border-radius: 2px;
   margin: 44px auto 36px;
@@ -117,15 +127,15 @@
   mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
+.ts-ticker-wrap:hover .ts-ticker {
+  animation-play-state: paused;
+}
+
 .ts-ticker {
   display: flex;
   gap: 14px;
   width: max-content;
-  animation: tsTicker 20s linear infinite;
-}
-
-.ts-ticker-wrap:hover .ts-ticker {
-  animation-play-state: paused;
+  animation: tsTicker 22s linear infinite;
 }
 
 @keyframes tsTicker {
@@ -137,40 +147,43 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px;
+  padding: 12px 28px;
   border-radius: 10px;
-  border: 1.5px solid #E2E8F0;
-  background: #F8FAFC;
+  border: 1.5px solid #C7D2FE;
+  background: #ffffff;
   white-space: nowrap;
   transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.06);
 }
 
 .ts-dark .ts-client {
-  background: rgba(255,255,255,0.05);
-  border-color: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(165,180,252,0.25);
+  box-shadow: none;
 }
 
 .ts-client:hover {
   border-color: #6366F1;
   background: #EEF2FF;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99,102,241,0.15);
 }
 
 .ts-dark .ts-client:hover {
-  border-color: rgba(99,102,241,0.5);
-  background: rgba(99,102,241,0.12);
+  border-color: rgba(99,102,241,0.6);
+  background: rgba(99,102,241,0.15);
 }
 
 .ts-client span {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #334155;
 }
 
 .ts-dark .ts-client span {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.85);
 }
 
 /* ── Responsive ── */
@@ -184,5 +197,5 @@
 @media (max-width: 480px) {
   .ts-badge { min-width: 90px; padding: 14px 14px; }
   .ts-badge-name { font-size: 13px; }
-  .ts-stars { font-size: 13px; }
+  .ts-stars { font-size: 14px; }
 }

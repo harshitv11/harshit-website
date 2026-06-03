@@ -147,6 +147,11 @@ main {
   background: transparent !important;
 }
 
+/* Trust section must NOT be transparent */
+.ts-wrap {
+  background: unset !important;
+}
+
 /* ── Section separators with soft gradient cards ── */
 .career-section,
 .work-section,

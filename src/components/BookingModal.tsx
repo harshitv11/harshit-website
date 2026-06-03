@@ -9,7 +9,7 @@ const BookingModal = ({ delay = 60 }: BookingModalProps) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem("hm_modal_dismissed")) return;
+    // Always show for testing — remove sessionStorage check temporarily
     const timer = setTimeout(() => setShow(true), delay * 1000);
     return () => clearTimeout(timer);
   }, [delay]);

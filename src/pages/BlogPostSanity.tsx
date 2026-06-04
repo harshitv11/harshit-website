@@ -25,7 +25,12 @@ const ptComponents = {
     h2: ({ children }: any) => <h2 className="bp-h2">{children}</h2>,
     h3: ({ children }: any) => <h3 className="bp-h3">{children}</h3>,
     h4: ({ children }: any) => <h4 className="bp-h4">{children}</h4>,
-    normal: ({ children }: any) => <p className="bp-p">{children}</p>,
+    normal: ({ children }: any) => {
+      const text = Array.isArray(children) ? children.map((c: any) => (typeof c === "string" ? c : "")).join("") : String(children || "");
+      if (text.trim() === "---") return <hr />;
+      if (!text.trim()) return null;
+      return <p className="bp-p">{children}</p>;
+    },
     blockquote: ({ children }: any) => <blockquote className="bp-quote">{children}</blockquote>,
   },
   list: {

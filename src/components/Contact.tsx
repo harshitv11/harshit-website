@@ -57,7 +57,7 @@ const Contact = () => {
               Instagram — Coming Soon <MdArrowOutward />
             </a>
             <a
-              href="mailto:hello@harshitmutha.com"
+              href="mailto:hello@harshitmutha.digital"
               data-cursor="disable"
               className="contact-social"
             >

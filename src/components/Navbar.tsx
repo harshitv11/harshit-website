@@ -53,9 +53,6 @@ const Navbar = () => {
         <a href="/#" className="navbar-title" data-cursor="disable">
           HM
         </a>
-        <a href="#contact" className="navbar-connect" data-cursor="disable">
-          harshitmutha.com
-        </a>
 
         {/* Hamburger button — mobile only */}
         <button

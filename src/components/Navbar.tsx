@@ -74,6 +74,7 @@ const Navbar = () => {
           <li><a data-href="#about" href="#about"><HoverLinks text="ABOUT" /></a></li>
           <li><a data-href="#work" href="#work"><HoverLinks text="WORK" /></a></li>
           <li><Link to="/chatgpt-ads"><HoverLinks text="CHATGPT ADS" /></Link></li>
+          <li><Link to="/blog"><HoverLinks text="BLOG" /></Link></li>
           <li><a data-href="#contact" href="#contact"><HoverLinks text="CONTACT" /></a></li>
         </ul>
       </div>
@@ -84,6 +85,7 @@ const Navbar = () => {
           <li><a href="#about" onClick={handleNavClick}>About</a></li>
           <li><a href="#work" onClick={handleNavClick}>Work</a></li>
           <li><Link to="/chatgpt-ads" onClick={handleNavClick}>ChatGPT Ads</Link></li>
+          <li><Link to="/blog" onClick={handleNavClick}>Blog</Link></li>
           <li><a href="#contact" onClick={handleNavClick}>Contact</a></li>
         </ul>
       </div>

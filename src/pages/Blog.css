@@ -1,0 +1,53 @@
+/* ── Blog Listing Page ── */
+.bl-wrap { min-height:100vh; background:#F8FAFC; font-family:"Geist",sans-serif; color:#0F172A; }
+
+.bl-nav { display:flex; justify-content:space-between; align-items:center; padding:20px 5%; border-bottom:1px solid #E2E8F0; background:rgba(248,250,252,0.95); backdrop-filter:blur(8px); position:sticky; top:0; z-index:100; }
+.bl-logo { font-weight:900; font-size:20px; color:#6366F1; text-decoration:none; }
+.bl-nav-right { display:flex; align-items:center; gap:20px; }
+.bl-nav-link { font-size:14px; color:#334155; text-decoration:none; font-weight:500; transition:color .2s; }
+.bl-nav-link:hover { color:#6366F1; }
+.bl-nav-cta { padding:9px 20px; background:linear-gradient(135deg,#6366F1,#38BDF8); color:#fff; text-decoration:none; border-radius:50px; font-size:13px; font-weight:700; }
+.bl-nav-cta:hover { color:#fff; opacity:.9; }
+
+.bl-header { background:linear-gradient(135deg,#0F172A,#1E1B4B); padding:80px 5% 70px; text-align:center; }
+.bl-header-inner { max-width:700px; margin:0 auto; }
+.bl-header-tag { font-size:12px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:rgba(165,180,252,.7); margin:0 0 20px; }
+.bl-header h1 { font-size:clamp(32px,5vw,52px); font-weight:900; color:#fff; line-height:1.15; margin:0 0 16px; }
+.bl-header-sub { font-size:17px; color:rgba(255,255,255,.6); line-height:1.7; margin:0; max-width:560px; margin:0 auto; }
+
+.bl-main { padding:60px 5% 80px; }
+.bl-container { max-width:900px; margin:0 auto; }
+
+.bl-loading { display:flex; flex-direction:column; gap:20px; }
+.bl-skeleton { height:180px; border-radius:16px; background:linear-gradient(90deg,#E2E8F0 25%,#F1F5F9 50%,#E2E8F0 75%); background-size:200% 100%; animation:blSkel 1.5s ease infinite; }
+@keyframes blSkel { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+.bl-empty { text-align:center; padding:80px 20px; }
+.bl-empty h3 { font-size:24px; font-weight:700; color:#0F172A; margin:0 0 12px; }
+.bl-empty p { font-size:16px; color:#64748B; margin:0 0 28px; }
+.bl-cta { display:inline-flex; padding:13px 28px; background:linear-gradient(135deg,#6366F1,#38BDF8); color:#fff; text-decoration:none; border-radius:50px; font-size:14px; font-weight:700; }
+
+.bl-grid { display:flex; flex-direction:column; gap:20px; }
+
+.bl-card { display:block; background:#fff; border:1px solid #E2E8F0; border-radius:18px; padding:28px 32px; text-decoration:none; transition:all .2s; color:#0F172A; }
+.bl-card:hover { border-color:#6366F1; box-shadow:0 8px 32px rgba(99,102,241,.1); transform:translateY(-2px); }
+.bl-card-featured { background:linear-gradient(135deg,#EEF2FF,#E0F2FE); border-color:#C7D2FE; }
+.bl-card-meta { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+.bl-date { font-size:13px; color:#64748B; font-weight:500; }
+.bl-read { font-size:12px; color:#6366F1; font-weight:600; background:#EEF2FF; padding:3px 10px; border-radius:50px; }
+.bl-card-title { font-size:clamp(19px,3vw,24px); font-weight:800; color:#0F172A; line-height:1.3; margin:0 0 10px; }
+.bl-card-excerpt { font-size:15px; color:#334155; line-height:1.65; margin:0 0 16px; }
+.bl-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.bl-tag { font-size:11px; font-weight:600; color:#6366F1; background:#EEF2FF; border:1px solid #C7D2FE; padding:3px 10px; border-radius:50px; text-transform:uppercase; letter-spacing:.5px; }
+.bl-card-link { font-size:14px; font-weight:700; color:#6366F1; }
+
+.bl-footer { padding:28px 5%; border-top:1px solid #E2E8F0; display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#64748B; }
+.bl-footer a { color:#6366F1; text-decoration:none; font-weight:500; }
+.bl-footer p { margin:0; }
+
+@media(max-width:640px) {
+  .bl-header { padding:60px 6% 50px; }
+  .bl-main { padding:40px 6% 60px; }
+  .bl-card { padding:22px; }
+  .bl-footer { flex-direction:column; gap:10px; text-align:center; }
+}

@@ -14,13 +14,16 @@
   padding-bottom: 60px;
   width: 500px;
   max-width: calc(100% - 15px);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .about-cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 32px;
+  margin-top: 36px;
   padding: 14px 28px;
   background: linear-gradient(135deg, #6366F1, #38BDF8);
   color: #ffffff !important;
@@ -33,6 +36,8 @@
   transition: transform 0.2s, box-shadow 0.2s;
   position: relative;
   z-index: 10;
+  align-self: flex-start;
+  flex-shrink: 0;
 }
 
 .about-cta:hover {
@@ -101,8 +106,12 @@
   }
   .about-me {
     padding: 0px;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
   }
 
   .about-cta {

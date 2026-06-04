@@ -42,15 +42,16 @@ function makeTexture(bg: string, label: string, textColor = "#ffffff", emoji = "
   return new THREE.CanvasTexture(canvas);
 }
 
-const textures = [
-  makeTexture("#10A37F", "ChatGPT", "#ffffff", "🤖"),
-  makeTexture("#1A1A2E", "Perplexity", "#20DDAA", "🔍"),
-  makeTexture("#0082FB", "Meta Ads", "#ffffff", "∞"),
-  makeTexture("#1877F2", "Facebook", "#ffffff", "f"),
-  makeTexture("#ffffff", "Google Ads", "#4285F4", "G"),
-  makeTexture("#10A37F", "ChatGPT", "#ffffff", "🤖"),
-  makeTexture("#0082FB", "Meta Ads", "#ffffff", "∞"),
-  makeTexture("#ffffff", "Google Ads", "#4285F4", "G"),
+// Textures created lazily inside component via useMemo — not at module level
+const textureConfigs = [
+  { bg: "#10A37F", label: "ChatGPT",   textColor: "#ffffff", emoji: "🤖" },
+  { bg: "#1A1A2E", label: "Perplexity",textColor: "#20DDAA", emoji: "🔍" },
+  { bg: "#0082FB", label: "Meta Ads",  textColor: "#ffffff", emoji: "∞"  },
+  { bg: "#1877F2", label: "Facebook",  textColor: "#ffffff", emoji: "f"  },
+  { bg: "#ffffff", label: "Google Ads",textColor: "#4285F4", emoji: "G"  },
+  { bg: "#10A37F", label: "ChatGPT",   textColor: "#ffffff", emoji: "🤖" },
+  { bg: "#0082FB", label: "Meta Ads",  textColor: "#ffffff", emoji: "∞"  },
+  { bg: "#ffffff", label: "Google Ads",textColor: "#4285F4", emoji: "G"  },
 ];
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
@@ -181,6 +182,8 @@ const TechStack = () => {
     };
   }, []);
   const materials = useMemo(() => {
+    // Create textures here inside useMemo — safe in browser, skipped during SSR/build
+    const textures = textureConfigs.map((cfg) => makeTexture(cfg.bg, cfg.label, cfg.textColor, cfg.emoji));
     return textures.map(
       (texture) =>
         new THREE.MeshPhysicalMaterial({

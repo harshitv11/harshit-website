@@ -2,31 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.harshitmutha.digital/</loc>
+    <lastmod>2026-06-09</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://www.harshitmutha.digital/chatgpt-ads</loc>
+    <lastmod>2026-06-09</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.harshitmutha.digital/blog</loc>
+    <lastmod>2026-06-09</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://www.harshitmutha.digital/chatgpt-ads</loc>
+    <loc>https://www.harshitmutha.digital/blog/chatgpt-ads-pricing</loc>
+    <lastmod>2026-06-09</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.harshitmutha.digital/blog/how-to-run-ads-on-chatgpt</loc>
+    <lastmod>2026-06-09</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.harshitmutha.digital/blog/what-are-chatgpt-ads</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.harshitmutha.digital/blog/chatgpt-ads-pricing</loc>
+    <lastmod>2026-06-09</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>

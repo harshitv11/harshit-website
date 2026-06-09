@@ -1,16 +1,20 @@
 const DOMAIN = "https://www.harshitmutha.digital";
+const DEFAULT_OG_IMAGE = `${DOMAIN}/images/preview1.png`;
 
-export function setMeta(title: string, description: string, path?: string) {
+export function setMeta(title: string, description: string, path?: string, ogImage?: string) {
   const url = path ? `${DOMAIN}${path}` : DOMAIN;
+  const image = ogImage || DEFAULT_OG_IMAGE;
   document.title = title;
   setTag("meta", "name", "description", "content", description);
   setTag("meta", "property", "og:title", "content", title);
   setTag("meta", "property", "og:description", "content", description);
   setTag("meta", "property", "og:url", "content", url);
   setTag("meta", "property", "og:type", "content", "website");
+  setTag("meta", "property", "og:image", "content", image);
   setTag("meta", "name", "twitter:title", "content", title);
   setTag("meta", "name", "twitter:description", "content", description);
   setTag("meta", "name", "twitter:card", "content", "summary_large_image");
+  setTag("meta", "name", "twitter:image", "content", image);
   // Update canonical
   let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
   if (!canonical) {

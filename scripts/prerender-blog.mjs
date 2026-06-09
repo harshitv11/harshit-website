@@ -25,7 +25,9 @@ function escapeHtml(s = "") {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-function injectHead(html, { title, description, url, ogType = "article", schemas = [] }) {
+const OG_IMAGE = `${DOMAIN}/images/preview1.png`;
+
+function injectHead(html, { title, description, url, ogType = "article", schemas = [], ogImage = OG_IMAGE }) {
   let out = html;
   out = out.replace(/<title>.*?<\/title>/s, `<title>${escapeHtml(title)}</title>`);
   out = out.replace(/<meta name="description" content=".*?"\s*\/>/s, `<meta name="description" content="${escapeHtml(description)}" />`);
@@ -33,8 +35,24 @@ function injectHead(html, { title, description, url, ogType = "article", schemas
   out = out.replace(/<meta property="og:description" content=".*?"\s*\/>/s, `<meta property="og:description" content="${escapeHtml(description)}" />`);
   out = out.replace(/<meta property="og:url" content=".*?"\s*\/>/s, `<meta property="og:url" content="${escapeHtml(url)}" />`);
   out = out.replace(/<meta property="og:type" content=".*?"\s*\/>/s, `<meta property="og:type" content="${ogType}" />`);
+  // Update or inject og:image
+  if (out.match(/<meta property="og:image" content=".*?"\s*\/>/s)) {
+    out = out.replace(/<meta property="og:image" content=".*?"\s*\/>/s, `<meta property="og:image" content="${escapeHtml(ogImage)}" />`);
+  } else {
+    out = out.replace('</head>', `  <meta property="og:image" content="${escapeHtml(ogImage)}" />\n</head>`);
+  }
   out = out.replace(/<meta name="twitter:title" content=".*?"\s*\/>/s, `<meta name="twitter:title" content="${escapeHtml(title)}" />`);
   out = out.replace(/<meta name="twitter:description" content=".*?"\s*\/>/s, `<meta name="twitter:description" content="${escapeHtml(description)}" />`);
+  // Update or inject twitter:image
+  if (out.match(/<meta name="twitter:image" content=".*?"\s*\/>/s)) {
+    out = out.replace(/<meta name="twitter:image" content=".*?"\s*\/>/s, `<meta name="twitter:image" content="${escapeHtml(ogImage)}" />`);
+  } else {
+    out = out.replace('</head>', `  <meta name="twitter:image" content="${escapeHtml(ogImage)}" />\n</head>`);
+  }
+  // Ensure robots index,follow is present
+  if (!out.match(/<meta name="robots"/)) {
+    out = out.replace('</head>', `  <meta name="robots" content="index, follow" />\n</head>`);
+  }
 
   const canonicalTag = `<link rel="canonical" href="${escapeHtml(url)}" />`;
   if (out.match(/<link rel="canonical".*?\/>/s)) {
@@ -66,8 +84,44 @@ function write(relPath, html) {
 
 async function run() {
   const posts = await client.fetch(allPostsQuery);
+
+  // ── Static page prerendering ──────────────────────────────────────────────
+  // These three pages are otherwise pure CSR. We generate static HTML files so
+  // Googlebot (and other crawlers that don't run JS) see real meta tags,
+  // canonicals, titles, and visible content on the first HTTP response.
+
+  // Homepage /
+  const homeHtml = injectHead(TEMPLATE, {
+    title: "Harshit Mutha — AI Ads Expert & ChatGPT Ads Specialist",
+    description: "Harshit Mutha helps brands scale using AI-powered advertising, ChatGPT Ads, and performance marketing systems that turn ad spend into predictable revenue.",
+    url: `${DOMAIN}/`,
+    ogType: "website",
+    schemas: [],
+  });
+  write("", homeHtml);
+
+  // /chatgpt-ads
+  const chatgptAdsHtml = injectHead(TEMPLATE, {
+    title: "ChatGPT Ads Expert — Run Ads on ChatGPT & AI Platforms | Harshit Mutha",
+    description: "Harshit Mutha runs paid ad campaigns on ChatGPT, Perplexity, and AI platforms for B2B brands in the US, UK, and Australia. Retainers from $1,000/month. Book a call.",
+    url: `${DOMAIN}/chatgpt-ads`,
+    ogType: "website",
+    schemas: [{
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "ChatGPT Ads Management",
+      "url": `${DOMAIN}/chatgpt-ads`,
+      "description": "Expert management of paid advertising campaigns on ChatGPT, Perplexity and AI-native platforms for B2B brands.",
+      "provider": { "@type": "Person", "name": "Harshit Mutha", "url": DOMAIN },
+      "areaServed": ["United States", "United Kingdom", "Australia"],
+      "priceRange": "From $1,000/month",
+    }],
+  });
+  write("chatgpt-ads", chatgptAdsHtml);
+
+  // /blog index
   if (!posts?.length) {
-    console.log("No published posts found — skipping prerender.");
+    console.log("No published posts found — skipping blog post prerender.");
     return;
   }
 

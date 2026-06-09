@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { sanityClient, allPostsQuery } from "../lib/sanity";
+import { setMeta } from "../utils/seo";
 import "./Blog.css";
 
 interface Post {
@@ -18,7 +19,11 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    document.title = "Blog — AI Ads & ChatGPT Marketing | Harshit Mutha";
+    setMeta(
+      "Blog — AI Ads & ChatGPT Marketing | Harshit Mutha",
+      "Practical writing on ChatGPT Ads, Perplexity Ads, and what's actually working in AI platform advertising right now. Written by Harshit Mutha.",
+      "/blog"
+    );
     document.body.style.overflow = "auto";
     document.body.style.height = "auto";
     window.scrollTo(0, 0);

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { setMeta } from "../utils/seo";
 import "./ChatGPTAds.css";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import TrustSection from "../components/TrustSection";
@@ -21,18 +22,11 @@ const ChatGPTAds = () => {
     document.body.style.overflow = "auto";
     document.body.style.height = "auto";
     window.scrollTo(0, 0);
-    document.title = "ChatGPT Ads Expert — Run Ads on ChatGPT & AI Platforms | Harshit Mutha";
-    const setTag = (a: string, v: string, c: string) => {
-      let el = document.querySelector(`meta[${a}="${v}"]`) as HTMLMetaElement;
-      if (!el) { el = document.createElement("meta"); el.setAttribute(a, v); document.head.appendChild(el); }
-      el.setAttribute("content", c);
-    };
-    setTag("name", "description", "Harshit Mutha runs paid ad campaigns on ChatGPT, Perplexity, and AI platforms for B2B brands in the US, UK, and Australia. Retainers from $1,000/month. Book a call.");
-    setTag("property", "og:title", "ChatGPT Ads Expert — Run Ads on ChatGPT & AI Platforms | Harshit Mutha");
-    setTag("property", "og:url", "https://www.harshitmutha.digital/chatgpt-ads");
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://www.harshitmutha.digital/chatgpt-ads";
+    setMeta(
+      "ChatGPT Ads Expert — Run Ads on ChatGPT & AI Platforms | Harshit Mutha",
+      "Harshit Mutha runs paid ad campaigns on ChatGPT, Perplexity, and AI platforms for B2B brands in the US, UK, and Australia. Retainers from $1,000/month. Book a call.",
+      "/chatgpt-ads"
+    );
     return () => { clearInterval(toastTimer); document.body.style.overflow = "hidden"; document.body.style.height = ""; };
   }, []);
 

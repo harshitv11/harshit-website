@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { MdArrowOutward, MdCopyright } from "react-icons/md";
 import "./styles/Contact.css";
 
@@ -101,6 +102,13 @@ const Contact = () => {
             <a href="mailto:hv1138769@gmail.com" data-cursor="disable" className="contact-social">
               Email Me <MdArrowOutward />
             </a>
+            <h4 style={{ marginTop: "1.2rem" }}>Pages</h4>
+            <Link to="/chatgpt-ads" className="contact-social">
+              ChatGPT Ads Services <MdArrowOutward />
+            </Link>
+            <Link to="/blog" className="contact-social">
+              Blog — AI Ads Insights <MdArrowOutward />
+            </Link>
           </div>
           <div className="contact-box">
             <h2>

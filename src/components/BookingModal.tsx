@@ -47,7 +47,7 @@ const BookingModal = ({ delay = 60 }: BookingModalProps) => {
         </div>
 
         {/* CTA */}
-        <a href="https://calendly.com" target="_blank" rel="noreferrer" className="bm-cta" onClick={dismiss}>
+        <a href="https://calendly.com/hv1138769/30min" target="_blank" rel="noreferrer" className="bm-cta" onClick={dismiss}>
           Book a FREE 30-Min Call →
         </a>
         <p className="bm-no-lockin">No commitment. Cancel anytime.</p>

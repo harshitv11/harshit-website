@@ -53,7 +53,7 @@ const ChatGPTAds = () => {
         <Link to="/" className="ca-logo">HM</Link>
         <div className="ca-nav-right">
           <Link to="/" className="ca-nav-link">Portfolio</Link>
-          <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-nav-cta">Book a Free Call</a>
+          <a href="https://calendly.com/hv1138769/30min" target="_blank" rel="noreferrer" className="ca-nav-cta">Book a Free Call</a>
         </div>
       </nav>
 
@@ -68,7 +68,7 @@ const ChatGPTAds = () => {
           <p className="ca-subhead">I run paid ads on ChatGPT, Perplexity, and AI-native platforms — where your buyers are asking questions right now, and nobody's competing for their attention yet.</p>
 
           <div className="ca-hero-actions">
-            <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta">Book a FREE 30-Min Call →</a>
+            <a href="https://calendly.com/hv1138769/30min" target="_blank" rel="noreferrer" className="ca-cta">Book a FREE 30-Min Call →</a>
             <p className="ca-no-lockin">No pitch deck. No pressure. Just an honest conversation.</p>
           </div>
 
@@ -207,7 +207,7 @@ const ChatGPTAds = () => {
             </div>
           </div>
           <div className="ca-cta-block">
-            <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta">Book a FREE Call →</a>
+            <a href="https://calendly.com/hv1138769/30min" target="_blank" rel="noreferrer" className="ca-cta">Book a FREE Call →</a>
             <p className="ca-no-lockin">No lock-in. Cancel anytime.</p>
           </div>
         </div>
@@ -295,7 +295,7 @@ const ChatGPTAds = () => {
                 <li>✓ Ad spend in your own account — full transparency</li>
                 <li>✓ No lock-in contract on first engagement</li>
               </ul>
-              <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta ca-cta-full">Book a FREE 30-Min Call →</a>
+              <a href="https://calendly.com/hv1138769/30min" target="_blank" rel="noreferrer" className="ca-cta ca-cta-full">Book a FREE 30-Min Call →</a>
               <p className="ca-no-lockin">Cancel anytime. I'd rather earn the retainer.</p>
             </div>
           </div>
@@ -328,7 +328,7 @@ const ChatGPTAds = () => {
             <div className="ca-avatar ca-avatar-lg">HM</div>
             <h2>Let's talk about your brand.</h2>
             <p>30 minutes. I'll look at what you're running now, what's not working, and tell you honestly whether ChatGPT Ads are the right next move. No decks. No sales pitch.</p>
-            <a href="https://calendly.com" target="_blank" rel="noreferrer" className="ca-cta ca-cta-lg">Book a FREE 30-Min Call →</a>
+            <a href="https://calendly.com/hv1138769/30min" target="_blank" rel="noreferrer" className="ca-cta ca-cta-lg">Book a FREE 30-Min Call →</a>
             <p className="ca-no-lockin">No lock-in. Cancel anytime. Billing in USD.</p>
           </div>
         </div>

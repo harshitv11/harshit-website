@@ -172,7 +172,7 @@ const BlogPostSanity = () => {
         <Link to="/" className="bps-logo">HM</Link>
         <div className="bps-nav-right">
           <Link to="/blog" className="bps-nav-link">← Blog</Link>
-          <a href="https://calendly.com" target="_blank" rel="noreferrer" className="bps-nav-cta">Book a Free Call</a>
+          <a href="https://calendly.com/hv1138769/30min" target="_blank" rel="noreferrer" className="bps-nav-cta">Book a Free Call</a>
         </div>
       </nav>
 

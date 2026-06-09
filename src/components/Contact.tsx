@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import { MdArrowOutward, MdCopyright } from "react-icons/md";
-import emailjs from "@emailjs/browser";
 import "./styles/Contact.css";
 
 const Contact = () => {
@@ -12,15 +11,21 @@ const Contact = () => {
     if (!formRef.current) return;
     setStatus("sending");
 
+    const formData = new FormData(formRef.current);
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
+
     try {
-      await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
-      setStatus("success");
-      formRef.current.reset();
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("success");
+        formRef.current.reset();
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
@@ -47,14 +52,14 @@ const Contact = () => {
               <input
                 className="contact-input"
                 type="text"
-                name="from_name"
+                name="name"
                 placeholder="Your Name"
                 required
               />
               <input
                 className="contact-input"
                 type="email"
-                name="reply_to"
+                name="email"
                 placeholder="Your Email"
                 required
               />
@@ -87,25 +92,13 @@ const Contact = () => {
           </div>
           <div className="contact-box">
             <h4>Social</h4>
-            <a
-              href="#"
-              data-cursor="disable"
-              className="contact-social"
-            >
+            <a href="#" data-cursor="disable" className="contact-social">
               LinkedIn — Coming Soon <MdArrowOutward />
             </a>
-            <a
-              href="#"
-              data-cursor="disable"
-              className="contact-social"
-            >
+            <a href="#" data-cursor="disable" className="contact-social">
               Instagram — Coming Soon <MdArrowOutward />
             </a>
-            <a
-              href="mailto:hv1138769@gmail.com"
-              data-cursor="disable"
-              className="contact-social"
-            >
+            <a href="mailto:hv1138769@gmail.com" data-cursor="disable" className="contact-social">
               Email Me <MdArrowOutward />
             </a>
           </div>

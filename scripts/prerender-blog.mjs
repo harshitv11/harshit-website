@@ -29,6 +29,13 @@ const OG_IMAGE = `${DOMAIN}/images/preview1.png`;
 
 function injectHead(html, { title, description, url, ogType = "article", schemas = [], ogImage = OG_IMAGE }) {
   let out = html;
+
+  // ── CRITICAL: strip ALL existing JSON-LD <script> blocks from the template ──
+  // index.html contains homepage-specific schemas (ProfessionalService, FAQPage).
+  // If we don't remove them, every prerendered page inherits those schemas and
+  // blog posts end up with TWO FAQPage blocks → Google "Duplicate FAQPage" error.
+  out = out.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>\s*/gi, "");
+
   out = out.replace(/<title>.*?<\/title>/s, `<title>${escapeHtml(title)}</title>`);
   out = out.replace(/<meta name="description" content=".*?"\s*\/>/s, `<meta name="description" content="${escapeHtml(description)}" />`);
   out = out.replace(/<meta property="og:title" content=".*?"\s*\/>/s, `<meta property="og:title" content="${escapeHtml(title)}" />`);
@@ -61,8 +68,9 @@ function injectHead(html, { title, description, url, ogType = "article", schemas
     out = out.replace("</head>", `  ${canonicalTag}\n</head>`);
   }
 
+  // Inject only the page-specific schemas (clean, no duplicates)
   const schemaTags = schemas.map(s => `<script type="application/ld+json">${JSON.stringify(s).replace(/</g, "\\u003c")}</script>`).join("\n  ");
-  out = out.replace("</head>", `  ${schemaTags}\n</head>`);
+  if (schemaTags) out = out.replace("</head>", `  ${schemaTags}\n</head>`);
   return out;
 }
 

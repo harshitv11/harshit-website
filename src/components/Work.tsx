@@ -7,6 +7,8 @@ const projects = [
     category: "ChatGPT-Powered Ad Campaigns",
     tools: "ChatGPT Ads · Meta Ads · AI Creative Automation · Performance Tracking",
     image: "/images/callhq.png",
+    width: 1270,
+    height: 848,
     link: "#",
   },
   {
@@ -14,6 +16,8 @@ const projects = [
     category: "Lead Generation & Conversion",
     tools: "Meta Ads · Google Ads · Landing Pages · A/B Testing · CRO",
     image: "/images/whatsapp.png",
+    width: 1198,
+    height: 837,
     link: "#",
   },
   {
@@ -21,6 +25,8 @@ const projects = [
     category: "Brand Scaling with AI",
     tools: "AI Automation · Growth Strategy · Email Marketing · Brand Positioning",
     image: "/images/broki.png",
+    width: 1157,
+    height: 837,
     link: "#",
   },
   {
@@ -28,6 +34,8 @@ const projects = [
     category: "AI-Powered Ad Creatives",
     tools: "AI Creative Systems · Video Ads · Copywriting · Visual Branding",
     image: "/images/orrdr.png",
+    width: 1157,
+    height: 837,
     link: "#",
   },
 ];
@@ -48,7 +56,7 @@ const Work = () => {
           {allProjects.map((project, index) => (
             <div className="work-ticker-card" key={index}>
               <div className="work-ticker-image">
-                <WorkImage image={project.image} alt={project.title} link={project.link} />
+                <WorkImage image={project.image} alt={project.title} link={project.link} width={project.width} height={project.height} />
               </div>
               <div className="work-ticker-info">
                 <span className="work-ticker-num">0{(index % projects.length) + 1}</span>

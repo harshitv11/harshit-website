@@ -15,8 +15,11 @@ interface LoadingType {
 
 export const LoadingContext = createContext<LoadingType | null>(null);
 
-export const LoadingProvider = ({ children }: PropsWithChildren) => {
-  const [isLoading, setIsLoading] = useState(true);
+export const LoadingProvider = ({
+  children,
+  showLoader = true,
+}: PropsWithChildren<{ showLoader?: boolean }>) => {
+  const [isLoading, setIsLoading] = useState(showLoader);
   const [loading, setLoading] = useState(0);
 
   const value = {
@@ -25,6 +28,17 @@ export const LoadingProvider = ({ children }: PropsWithChildren) => {
     setLoading,
   };
   useEffect(() => {}, [loading]);
+
+  useEffect(() => {
+    // When the loading screen is skipped (mobile — no 3D scene to wait
+    // for), run the same intro reveal it would otherwise trigger so the
+    // page becomes visible/scrollable.
+    if (!showLoader) {
+      import("../components/utils/initialFX").then((module) => {
+        module.initialFX?.();
+      });
+    }
+  }, [showLoader]);
 
   return (
     <LoadingContext.Provider value={value as LoadingType}>

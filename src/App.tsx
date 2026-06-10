@@ -18,21 +18,20 @@ const Loader = () => (
 );
 
 const HomePage = () => {
-  const [isDesktop, setIsDesktop] = useState(false);
+  // The Three.js character scene is extremely main-thread heavy
+  // (WebGL renderer + GLTF load + per-frame rAF loop). Only mount it
+  // (and its loading screen) on desktop viewports — mobile never renders it.
+  const [isDesktop] = useState(() => window.innerWidth > 1024);
 
   useEffect(() => {
     setMeta(
       "Harshit Mutha — AI Ads Expert & ChatGPT Ads Specialist",
       "Harshit Mutha helps brands scale using AI-powered advertising, ChatGPT Ads, and performance marketing systems that turn ad spend into predictable revenue."
     );
-    // The Three.js character scene is extremely main-thread heavy
-    // (WebGL renderer + GLTF load + per-frame rAF loop). Only mount it
-    // on desktop viewports — mobile never renders it.
-    setIsDesktop(window.innerWidth > 1024);
   }, []);
 
   return (
-    <LoadingProvider>
+    <LoadingProvider showLoader={isDesktop}>
       <Suspense>
         <MainContainer>
           {isDesktop && (

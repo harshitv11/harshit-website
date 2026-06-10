@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import { setMeta } from "./utils/seo";
@@ -18,17 +18,28 @@ const Loader = () => (
 );
 
 const HomePage = () => {
+  const [isDesktop, setIsDesktop] = useState(false);
+
   useEffect(() => {
     setMeta(
       "Harshit Mutha — AI Ads Expert & ChatGPT Ads Specialist",
       "Harshit Mutha helps brands scale using AI-powered advertising, ChatGPT Ads, and performance marketing systems that turn ad spend into predictable revenue."
     );
+    // The Three.js character scene is extremely main-thread heavy
+    // (WebGL renderer + GLTF load + per-frame rAF loop). Only mount it
+    // on desktop viewports — mobile never renders it.
+    setIsDesktop(window.innerWidth > 1024);
   }, []);
+
   return (
     <LoadingProvider>
       <Suspense>
         <MainContainer>
-          <Suspense><CharacterModel /></Suspense>
+          {isDesktop && (
+            <Suspense fallback={null}>
+              <CharacterModel />
+            </Suspense>
+          )}
         </MainContainer>
       </Suspense>
     </LoadingProvider>

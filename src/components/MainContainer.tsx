@@ -42,7 +42,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
         <div id="smooth-content">
           <div className="container-main">
             <Landing>{!isDesktopView && children}</Landing>
-            <TrustSection variant="light" showClients={true} />
+            <TrustSection variant="light" />
             <About />
             <WhatIDo />
             <Career />

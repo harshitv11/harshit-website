@@ -82,7 +82,7 @@ const ChatGPTAds = () => {
       </section>
 
       {/* ── TRUST ── */}
-      <TrustSection variant="dark" showClients={true} />
+      <TrustSection variant="dark" />
 
       {/* ── WHY CHATGPT ADS ── */}
       <section className="ca-section">

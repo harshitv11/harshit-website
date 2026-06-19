@@ -29,6 +29,7 @@ export const postBySlugQuery = `
     title,
     "slug": slug.current,
     publishedAt,
+    "updatedAt": _updatedAt,
     excerpt,
     seoTitle,
     seoDescription,
